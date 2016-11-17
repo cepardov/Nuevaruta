@@ -1,79 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Welcome to Grails</title>
-
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
 </head>
-<body>
-    <content tag="nav">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Environment: ${grails.util.Environment.current.name}</a></li>
-                <li><a href="#">App profile: ${grailsApplication.config.grails?.profile}</a></li>
-                <li><a href="#">App version:
-                    <g:meta name="info.app.version"/></a>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Grails version:
-                    <g:meta name="info.app.grailsVersion"/></a>
-                </li>
-                <li><a href="#">Groovy version: ${GroovySystem.getVersion()}</a></li>
-                <li><a href="#">JVM version: ${System.getProperty('java.version')}</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artefacts <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Controllers: ${grailsApplication.controllerClasses.size()}</a></li>
-                <li><a href="#">Domains: ${grailsApplication.domainClasses.size()}</a></li>
-                <li><a href="#">Services: ${grailsApplication.serviceClasses.size()}</a></li>
-                <li><a href="#">Tag Libraries: ${grailsApplication.tagLibClasses.size()}</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Installed Plugins <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-                    <li><a href="#">${plugin.name} - ${plugin.version}</a></li>
-                </g:each>
-            </ul>
-        </li>
-    </content>
 
-    <div class="svg" role="presentation">
-        <div class="grails-logo-container">
-            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
+<body>
+<nav class="z-depth-3">
+    <div class="nav-wrapper blue-grey lighten-1">
+        <a id="logo-container" href="http://localhost:8080" class="brand-logo">
+            <asset:image src="img/logo.png" alt="logo" class="img-responsive" width="18%" height="18%" style="padding:1%"/>
+        </a>
+        <ul id="dropdown1" class="dropdown-content">
+            <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
+                <li><g:link controller="${c.logicalPropertyName}">${c.name}</g:link></li>
+            </g:each>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Controladores Disponibles<i class="material-icons right">arrow_drop_down</i></a></li>
+            <!--<li><a href="${createLink(controller:'login', action:'login')}">Iniciar Sesión</a></li>-->
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+            <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
+                <li><g:link controller="${c.logicalPropertyName}">${c.name}</g:link></li>
+            </g:each>
+            <!--<li><a href="${createLink(controller:'login', action:'login')}">Iniciar Sesión</a></li>-->
+        </ul>
+        <a href="" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+<div class="row">
+    <div class="col s12 m5">
+        <div class="card-panel teal z-depth-4">
+            <span class="white-text">
+                Environment: ${grails.util.Environment.current.name}<br>
+                App profile: ${grailsApplication.config.grails?.profile}<br>
+                Grails version: <g:meta name="info.app.grailsVersion"/><br>
+                Groovy version: ${GroovySystem.getVersion()}<br>
+                JVM version: ${System.getProperty('java.version')}<br>
+                Reloading active: ${grails.util.Environment.reloadingAgentEnabled}
+            </span>
         </div>
     </div>
-
-    <div id="content" role="main">
-        <section class="row colset-2-its">
-            <h1><g:message code="grails.welcome"/></h1>
-
-            <p>
-                Congratulations, you have successfully started your first Grails application! At the moment
-                this is the default page, feel free to modify it to either redirect to a controller or display
-                whatever content you may choose. Below is a list of controllers that are currently deployed in
-                this application, click on each to execute its default action:
-            </p>
-
-            <div id="controllers" role="navigation">
-                <h2>Available Controllers:</h2>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller">
-                            <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
-                        </li>
-                    </g:each>
-                </ul>
-            </div>
-        </section>
-    </div>
+</div>
 
 </body>
 </html>
