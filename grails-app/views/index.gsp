@@ -33,9 +33,24 @@
                 Grails version: <g:meta name="info.app.grailsVersion"/><br>
                 Groovy version: ${GroovySystem.getVersion()}<br>
                 JVM version: ${System.getProperty('java.version')}<br>
-                Reloading active: ${grails.util.Environment.reloadingAgentEnabled}
+                Reloading active: ${grails.util.Environment.reloadingAgentEnabled}<br><br>
+                <a class="btn tooltipped" data-position="right" data-tooltip="Esto prueba un mensaje de informacion de prueba" onclick="Materialize.toast('Se esta incluyendo la funciones de mensajes', 5000,'')">Test de mesajes</a>
+                <br></br>
+                <!-- Modal Trigger -->
+                <a class="tooltipped waves-effect waves-light btn" data-position="right" data-tooltip="Abre un modal" href="#modal1">Test Modal</a>
             </span>
         </div>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Esto es el modal de Manzana</h4>
+        <p>Porque a manzana le gustan los modals</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves btn-flat">Cerrar</a>
     </div>
 </div>
 
