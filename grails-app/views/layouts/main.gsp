@@ -16,8 +16,11 @@
     <g:layoutHead/>
 </head>
 <body>
-
-
+<nav class="z-depth-3">
+    <div class="nav-wrapper blue-grey lighten-1">
+        <a id="logo-container" href="http://localhost:8080" class="brand-logo">
+            <asset:image src="img/logo.png" alt="logo" class="img-responsive" width="18%" height="18%" style="padding:1%"/>
+        </a>
     <g:layoutBody/>
 <footer class="page-footer blue-grey lighten-1 z-depth-3">
     <div class="row">
