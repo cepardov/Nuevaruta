@@ -10,7 +10,9 @@ class BootStrap {
                     paterno: "Zumelzu",
                     materno: "Zumelzu",
                     correo: "pablo@zumelzu.cl",
-                    telefono: "1234456768"
+                    telefono: "1234456768",
+                    tipo: "administrador",
+                    estado: "activo"
             ).save(failOnError:true)
         }
         if (!Sucursal.count()){
