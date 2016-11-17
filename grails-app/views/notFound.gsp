@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Page Not Found</title>
+    <title>Pagina no encontrada</title>
     <meta name="layout" content="main">
     <g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
 </head>

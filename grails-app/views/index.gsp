@@ -28,7 +28,7 @@
     <div class="col s12 m5">
         <div class="card-panel teal z-depth-4">
             <span class="white-text">
-                Environment: ${grails.util.Environments.current.name}<br>
+                Environment: ${grails.util.Environment.current.name}<br>
                 App profile: ${grailsApplication.config.grails?.profile}<br>
                 Grails version: <g:meta name="info.app.grailsVersion"/><br>
                 Groovy version: ${GroovySystem.getVersion()}<br>
