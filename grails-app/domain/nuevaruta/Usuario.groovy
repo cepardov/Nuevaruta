@@ -7,5 +7,6 @@ class Usuario {
     static constraints = {
         fechaCreacion nullable: true, blank:true
         fechaNacimiento nullable: true, blank:true
+        estado nullable: true, blank: true
     }
 }

@@ -6,5 +6,6 @@ class Contrato {
     static belongsTo = [sucursal:Sucursal,cliente:Cliente]
     static hasMany = []
     static constraints = {
+        estado nullable: true, blank: true
     }
 }

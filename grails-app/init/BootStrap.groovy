@@ -23,7 +23,8 @@ class BootStrap {
                     region: "Puerto Montt",
                     ciudad: "Puerto Montt",
                     fono: "123456689",
-                    usuario: "1"
+                    usuario: "1",
+                    correo: "contacto@nuevaruta.cl"
             ).save(failOnError:true)
         }
 
