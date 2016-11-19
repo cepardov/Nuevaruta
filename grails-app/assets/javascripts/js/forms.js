@@ -27,3 +27,6 @@ $('.modal').modal({
 		ending_top: '10%', // Ending top style attribute
 	}
 );
+$(document).ready(function(){
+    $('.carousel').carousel();
+});
