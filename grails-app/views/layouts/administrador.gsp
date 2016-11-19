@@ -41,37 +41,37 @@
     </div>
 </nav><!-- Aqui termina la continuacion del nav desde layout/main.gsp -->
 
-<div class="row"><!-- Base de la zona del contenido sector blanco -->
-    <div class="col s12 m3"><!-- Zona lateral izquerda -->
-        <div class="row">
-            <div class="col s12"> <!-- Formato del manu para administrador o formulario arrendamiento -->
-                <br>
-                <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
-                    <g:link class="waves-effect waves-light btn-large col s12" controller="${c.logicalPropertyName}">${c.name}</g:link><br><br>
-                </g:each>
-            </div>
+    <div class="row"><!-- Base de la zona del contenido sector blanco -->
+        <div class="col s12 m3"><!-- Zona lateral izquerda -->
             <div class="row">
-                <div class="col s12">
-                    <div class="card-panel teal z-depth-4">
-                        <span class="white-text">
-                            Environment: ${grails.util.Environment.current.name}<br>
-                            App profile: ${grailsApplication.config.grails?.profile}<br>
-                            Grails version: <g:meta name="info.app.grailsVersion"/><br>
-                            Groovy version: ${GroovySystem.getVersion()}<br>
-                            JVM version: ${System.getProperty('java.version')}<br>
-                            Reloading active: ${grails.util.Environment.reloadingAgentEnabled}<br><br>
-                            <a class="btn tooltipped" data-position="right" data-tooltip="Esto prueba un mensaje de informacion de prueba" onclick="Materialize.toast('Se esta incluyendo la funciones de mensajes', 5000,'')">Test de mesajes</a>
-                            <br></br>
-                            <!-- Modal Trigger -->
-                            <a class="tooltipped waves-effect waves-light btn" data-position="right" data-tooltip="Abre un modal" href="#modal1">Test Modal</a>
-                        </span>
+                <div class="col s12"> <!-- Formato del manu para administrador o formulario arrendamiento -->
+                    <br>
+                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
+                        <g:link class="waves-effect waves-light btn-large col s12" controller="${c.logicalPropertyName}">${c.name}</g:link><br><br>
+                    </g:each>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card-panel teal z-depth-4">
+                            <span class="white-text">
+                                Environment: ${grails.util.Environment.current.name}<br>
+                                App profile: ${grailsApplication.config.grails?.profile}<br>
+                                Grails version: <g:meta name="info.app.grailsVersion"/><br>
+                                Groovy version: ${GroovySystem.getVersion()}<br>
+                                JVM version: ${System.getProperty('java.version')}<br>
+                                Reloading active: ${grails.util.Environment.reloadingAgentEnabled}<br><br>
+                                <a class="btn tooltipped" data-position="right" data-tooltip="Esto prueba un mensaje de informacion de prueba" onclick="Materialize.toast('Se esta incluyendo la funciones de mensajes', 5000,'')">Test de mesajes</a>
+                                <br></br>
+                                <!-- Modal Trigger -->
+                                <a class="tooltipped waves-effect waves-light btn" data-position="right" data-tooltip="Abre un modal" href="#modal1">Test Modal</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
         <g:layoutBody/>
+    </div>
         <footer class="page-footer blue-grey lighten-1 z-depth-3">
             <div class="row">
                 <div class="col l6 s12">
