@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="layout" content="main" />
+        <meta name="layout" content="administrador" />
         <g:set var="entityName" value="${message(code: 'contrato.label', default: 'Contrato')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
+    <div class="slider col s12 m9"><!-- Contenido derecho -->
+
         <a href="#list-contrato" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
             <ul>
@@ -24,5 +26,10 @@
                 <g:paginate total="${contratoCount ?: 0}" />
             </div>
         </div>
+
+    </div>
+    </div>
+
+
     </body>
 </html>

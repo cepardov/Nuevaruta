@@ -54,7 +54,8 @@
             </div>
         </div>
     </div>
-    <div class="slider col s12 m9">
+
+    <div class="slider col s12 m9"><!-- Contenido derecho -->
         <ul class="slides z-depth-5">
             <li>
                 <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->

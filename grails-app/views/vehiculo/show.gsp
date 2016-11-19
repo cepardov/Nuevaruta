@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="layout" content="main" />
+        <meta name="layout" content="administrador" />
         <g:set var="entityName" value="${message(code: 'vehiculo.label', default: 'Vehiculo')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
