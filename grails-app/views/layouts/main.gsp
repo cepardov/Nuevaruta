@@ -16,11 +16,33 @@
     <g:layoutHead/>
 </head>
 <body>
-<nav class="z-depth-3">
-    <div class="nav-wrapper blue-grey lighten-1">
-        <a id="logo-container" href="http://localhost:8080" class="brand-logo">
-            <asset:image src="img/logo.png" alt="logo" class="img-responsive" width="18%" height="18%" style="padding:1%"/>
-        </a>
+    <head>
+        <nav class="z-depth-3">
+        <div class="nav-wrapper blue-grey lighten-1">
+            <a id="logo-container" href="http://localhost:8080" class="brand-logo">
+                <asset:image src="img/logo.png" alt="logo" class="img-responsive" width="18%" height="18%" style="padding:1%"/>
+            </a>
+            <ul id="dropdown1" class="dropdown-content">
+                <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
+                    <li><g:link controller="${c.logicalPropertyName}">${c.name}</g:link></li>
+                </g:each>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Controladores Disponibles<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="${createLink(controller:'login', action:'login')}">Iniciar Sesión</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
+                    <li><g:link controller="${c.logicalPropertyName}">${c.name}</g:link></li>
+                </g:each>
+            <!--<li><a href="${createLink(controller:'login', action:'login')}">Iniciar Sesión</a></li>-->
+            </ul>
+            <a href="" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav><!-- Aqui termina la continuacion del nav desde layout/main.gsp -->
+</head>
+
     <g:layoutBody/>
 <footer class="page-footer blue-grey lighten-1 z-depth-3">
     <div class="row">
