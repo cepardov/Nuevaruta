@@ -17,7 +17,7 @@
 </head>
 <body>
 <nav class="z-depth-3">
-    <div class="nav-wrapper blue-grey lighten-1">
+    <div class="nav-wrapper blue-grey lighten-5">
         <a id="logo-container" href="http://localhost:8080" class="brand-logo">
             <asset:image src="img/logo.png" alt="logo" class="img-responsive" width="18%" height="18%" style="padding:1%"/>
         </a>
@@ -27,8 +27,8 @@
             </g:each>
         </ul>
         <ul class="right hide-on-med-and-down">
-            <!--<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Controladores Disponibles<i class="material-icons right">arrow_drop_down</i></a></li>-->
-            <!--<li><a href="${createLink(controller:'login', action:'login')}">Iniciar Sesión</a></li>-->
+            <li><a class="dropdown-button black-text" href="#!" data-activates="dropdown1">Controladores Disponibles<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="black-text" href="${createLink(controller:'login', action:'login')}">Iniciar Sesión</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
@@ -40,7 +40,28 @@
         <a href="" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
 </nav><!-- Aqui termina la continuacion del nav desde layout/main.gsp -->
-
+<nav class="z-depth-3">
+    <div class="nav-wrapper teal darken-1">
+        <ul id="slide-out" class="side-nav">
+            <li><div class="userView">
+                <div class="background">
+                    <img src="http://materializecss.com/images/office.jpg">
+                </div>
+                <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
+                <a href="#!name"><span class="white-text name">John Doe</span></a>
+                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+            </div></li>
+            <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
+                <li><g:link controller="${c.logicalPropertyName}">${c.name}</g:link></li>
+            </g:each>
+            <li><a href="#!">Second Link</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Subheader</a></li>
+            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="menu-s"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
     <div class="row"><!-- Base de la zona del contenido sector blanco -->
         <div class="col s12 m3"><!-- Zona lateral izquerda -->
             <div class="row">

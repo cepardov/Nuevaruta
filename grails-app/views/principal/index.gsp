@@ -8,16 +8,20 @@
 <div class="row"><!-- Base de la zona del contenido sector blanco -->
     <div class="col s12 m3"><!-- Zona lateral izquerda -->
         <div class="row">
-            <div class="col s12"> <!-- Formato del manu para administrador o formulario arrendamiento -->
-                <br>
-                <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
-                    <g:link class="waves-effect waves-light btn-large col s12" controller="${c.logicalPropertyName}">${c.name}</g:link><br><br>
-                </g:each>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card-panel teal z-depth-4">
+                        <span class="white-text">
+                            Aqui va el formulario de arrendamiento...
+                        </span>
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="col s12">
                     <div class="card-panel teal z-depth-4">
                         <span class="white-text">
+                            <span class="card-title">Card Title</span>
                             Environment: ${grails.util.Environment.current.name}<br>
                             App profile: ${grailsApplication.config.grails?.profile}<br>
                             Grails version: <g:meta name="info.app.grailsVersion"/><br>
@@ -35,8 +39,8 @@
         </div>
     </div>
 
-    <div class="slider col s12 m9"><!-- Contenido derecho -->
-        <ul class="slides z-depth-5">
+    <div class="slider card-panel z-depth-0 col s12 m9"><!-- Contenido derecho -->
+        <ul class="slides">
             <li>
                 <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
                 <div class="caption center-align">
