@@ -28,29 +28,32 @@
         </ul>
         <ul class="right hide-on-med-and-down">
             <li><a class="dropdown-button black-text" href="#!" data-activates="dropdown1">Controladores Disponibles<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="black-text" href="${createLink(controller:'login', action:'login')}">Iniciar Sesión</a></li>
+            <li><a class="black-text" href="${createLink(controller:'principal', action:'index')}">Cerrar Sesión</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
             <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
                 <li><g:link controller="${c.logicalPropertyName}">${c.name}</g:link></li>
             </g:each>
-        <!--<li><a href="${createLink(controller:'login', action:'login')}">Iniciar Sesión</a></li>-->
+        <li><a href="${createLink(controller:'login', action:'login')}">Cerrar Sesión</a></li>
         </ul>
-        <a href="" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
 </nav><!-- Aqui termina la continuacion del nav desde layout/main.gsp -->
+
 <nav class="z-depth-3">
     <div class="nav-wrapper teal darken-1">
         <ul id="slide-out" class="side-nav">
-            <li><div class="userView">
+            <li>
+                <div class="userView">
                 <div class="background">
                     <img src="http://materializecss.com/images/office.jpg">
                 </div>
                 <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
                 <a href="#!name"><span class="white-text name">John Doe</span></a>
                 <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-            </div></li>
+                </div>
+            </li>
             <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
                 <li><g:link controller="${c.logicalPropertyName}">${c.name}</g:link></li>
             </g:each>
@@ -59,18 +62,21 @@
             <li><a class="subheader">Subheader</a></li>
             <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
         </ul>
-        <a href="#" data-activates="slide-out" class="menu-s"><i class="material-icons">menu</i></a>
+
+        <ul class="left">
+            <a href="#" data-activates="slide-out" class="menu-s"><i class="material-icons">menu</i></a>
+        </ul>
+        <ul class="right">
+            <a href="#" data-activates="slide-out" class="menu-s"><i class="material-icons">menu</i></a>
+        </ul>
+
+
     </div>
 </nav>
+
     <div class="row"><!-- Base de la zona del contenido sector blanco -->
         <div class="col s12 m3"><!-- Zona lateral izquerda -->
             <div class="row">
-                <div class="col s12"> <!-- Formato del manu para administrador o formulario arrendamiento -->
-                    <br>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
-                        <g:link class="waves-effect waves-light btn-large col s12" controller="${c.logicalPropertyName}">${c.name}</g:link><br><br>
-                    </g:each>
-                </div>
                 <div class="row">
                     <div class="col s12">
                         <div class="card-panel teal z-depth-4">
@@ -91,27 +97,15 @@
                 </div>
             </div>
         </div>
+        <div class="col s12 m9">
+            aqui ira el dash
+        </div>
         <g:layoutBody/>
     </div>
-        <footer class="page-footer blue-grey lighten-1 z-depth-3">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-            </div>
+        <footer class="page-footer teal darken-1 z-depth-3">
             <div class="footer-copyright">
                 <div class="container">
-                    © 2014 Copyright Text
+                    © 2016
                     <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
                 </div>
             </div>

@@ -29,7 +29,7 @@
             </ul>
             <ul class="right hide-on-med-and-down">
                 <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Controladores Disponibles<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a href="${createLink(controller:'login', action:'login')}">Iniciar Sesión</a></li>
+                <li><a href="${createLink(controller:'dashboard', action:'index')}">Iniciar Sesión</a></li>
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
