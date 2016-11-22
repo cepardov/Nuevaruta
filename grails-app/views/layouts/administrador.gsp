@@ -54,7 +54,7 @@
                 <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
                 </div>
             </li>
-            <li><a href="<g:createLink controller="principal" action="index" />"><i class="material-icons">home</i>Página Principal</a></li>
+            <li><a href="<g:createLink controller="dashboard" action="index" />"><i class="material-icons">home</i>Página Principal</a></li>
             <li><div class="divider"></div></li>
             <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
                 <li><g:link controller="${c.logicalPropertyName}"><i class="material-icons">${}settings</i>${c.name}</g:link></li>

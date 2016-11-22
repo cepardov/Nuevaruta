@@ -9,7 +9,7 @@ class ClienteController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def prueba(){
-
+        def icon="person"
     }
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
