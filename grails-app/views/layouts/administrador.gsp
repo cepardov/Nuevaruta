@@ -97,9 +97,6 @@
                 </div>
             </div>
         </div>
-        <div class="col s12 m9">
-            aqui ira el dash
-        </div>
         <g:layoutBody/>
     </div>
         <footer class="page-footer teal darken-1 z-depth-3">
