@@ -8542,3 +8542,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-bottom: 5em;
   }
 }
+a.m_title {
+  display: block;
+}
+
+a.m_title:first-letter {
+  text-transform: uppercase;
+}

@@ -54,10 +54,11 @@
                 <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
                 </div>
             </li>
+            <li><a href="<g:createLink controller="principal" action="index" />"><i class="material-icons">home</i>Página Principal</a></li>
+            <li><div class="divider"></div></li>
             <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
-                <li><g:link controller="${c.logicalPropertyName}">${c.name}</g:link></li>
+                <li><g:link controller="${c.logicalPropertyName}"><i class="material-icons">${}settings</i>${c.name}</g:link></li>
             </g:each>
-            <li><a href="#!">Second Link</a></li>
             <li><div class="divider"></div></li>
             <li><a class="subheader">Subheader</a></li>
             <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
@@ -66,11 +67,12 @@
         <ul class="left">
             <a href="#" data-activates="slide-out" class="menu-s"><i class="material-icons">menu</i></a>
         </ul>
+        <ul class="left">
+            <a class="flow-text m_title" href="<g:createLink controller="${controllerName}" action="index" />">${controllerName}s</a>
+        </ul>
         <ul class="right">
             <a href="#" data-activates="slide-out" class="menu-s"><i class="material-icons">menu</i></a>
         </ul>
-
-
     </div>
 </nav>
 
@@ -99,18 +101,10 @@
         </div>
         <g:layoutBody/>
     </div>
-        <footer class="page-footer teal darken-1 z-depth-3">
-            <div class="footer-copyright">
-                <div class="container">
-                    © 2016
-                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-                </div>
-            </div>
-        </footer>
-        <!--Import jQuery before materialize.js-->
-        <asset:javascript src="js/jquery-2.1.1.min.js"/>
-        <asset:javascript src="js/materialize.js"/>
-        <asset:javascript src="js/forms.js"/>
+    <!--Import jQuery before materialize.js-->
+    <asset:javascript src="js/jquery-2.1.1.min.js"/>
+    <asset:javascript src="js/materialize.js"/>
+    <asset:javascript src="js/forms.js"/>
 </body>
 </html>
 
