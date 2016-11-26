@@ -135,6 +135,9 @@
             </div>
         </div>
     </footer>
+<g:if test="${flash.message}">
+    <a id="clickButton" class="btn tooltipped" data-position="right" data-tooltip="Usuario Creado Correctamente" onclick="Materialize.toast('Usuario creado Correctamente', 5000,'')"></a>
+</g:if>
 <!--Import jQuery before materialize.js-->
 <asset:javascript src="js/jquery-2.1.1.min.js"/>
 <asset:javascript src="js/materialize.js"/>
@@ -174,6 +177,9 @@
                 alert('Debes ingresar a tu cuenta de Facebook!');
             }
         });
+    }
+    window.onload = function() {
+        document.getElementById('clickButton').click();
     }
 </script>
 </body>

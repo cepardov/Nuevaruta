@@ -18,6 +18,7 @@ class PrincipalController {
                 println it
             }
         }
+        flash.message= "usuario"
         redirect(action:"index")
     }
 }
