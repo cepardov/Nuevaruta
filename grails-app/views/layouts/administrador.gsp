@@ -57,7 +57,7 @@
             <li><a href="<g:createLink controller="dashboard" action="index" />"><i class="material-icons">home</i>Página Principal</a></li>
             <li><div class="divider"></div></li>
             <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
-                <li><g:link controller="${c.logicalPropertyName}"><i class="material-icons">${}
+                <li><g:link controller="${c.logicalPropertyName}"><i class="material-icons">
                 <g:if test="${c.name=="Usuario"}">person</g:if>
                 <g:if test="${c.name=="Contrato"}">settings</g:if>
                 <g:if test="${c.name=="Dashboard"}">person</g:if>

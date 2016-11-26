@@ -10,19 +10,34 @@
         <div class="row">
             <div class="row">
                 <div class="col s12">
-                    <div class="card-panel teal z-depth-4">
-                        <div class="input-field col s12">
-                            <select>
-                                <option value="" disabled selected>Choose your option</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                            </select>
-                            <label>Seleccione una fecha</label>
+                    <div class="card-panel teal white-text z-depth-4">
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="input-field col s12">
+                                    <select>
+                                        <option value="" disabled selected>Elija opcion</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                    </select>
+                                    <label class="white-text">Categorias</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <select>
+                                        <option value="" disabled selected>Elija opcion</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                    </select>
+                                    <label class="white-text">Arriendo de movil en</label>
+                                    <p class="left-align">
+                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                                        <label for="filled-in-box" class="white-text">Devolver en otra sucursal</label>
+                                    </p>
+                                </div>
+
+                            </form>
                         </div>
-                        <span class="white-text">
-                            Aqui va el formulario de arrendamiento...
-                        </span>
                     </div>
                 </div>
             </div>
