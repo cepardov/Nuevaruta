@@ -1,5 +1,7 @@
 package nuevaruta
 
+import org.apache.tools.ant.taskdefs.Get
+
 class PrincipalController {
 
     def index() {
@@ -9,8 +11,13 @@ class PrincipalController {
 
     }
     def registro(){
-        println "Password1: "+params.contraseñaCliente
-        println "Password2: "+params.contraseñaCliente2
+        def c= new Cliente(nombres: params.nombresCliente,correo: params.correoCliente, paterno: params.apellidosCliente, clave: params.contrasenaCliente)
+        c.save(flush:true)
+        if(!c.save()){
+            c.errors.each {
+                println it
+            }
+        }
         redirect(action:"index")
     }
 }

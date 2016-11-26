@@ -58,10 +58,10 @@
             </div>
             <div class="modal-footer">
                 <div class="input-field col s4">
-                    <g:submitButton class="btn-flat" name="ingresar" value="Ingresar" type="button"></g:submitButton>
+                    <g:submitButton class="btn-flat" name="ingresar" value="Ingresar" type="button">Ingresar a mi sesión</g:submitButton>
                 </div>
                 <div class="input-field col s4">
-                    <button class="btn-flat" name="ingresar" value="Ingresar Con Facebook" type="button" onclick="ingresar()">Registrarme</button>
+                    <button class="btn-flat" name="ingresar" type="button" onclick="ingresar()">Ingresar Con Facebook</button>
                 </div>
                 <div class="input-field col s4">
                     <a href="#!" class=" modal-action modal-close waves-effect waves btn-flat">Cerrar</a>
@@ -72,7 +72,7 @@
             <div class="modal-content">
                 <h4>Crear Cuenta</h4>
                 <div class="row">
-                    <g:form name="registro" class="col s12">
+                    <g:form controller="principal" action="registro" class="col s12">
                         <div class="row">
                             <div class="input-field col s6">
                                 <input id="first_name" type="text" name="nombresCliente" class="validate">
@@ -91,17 +91,17 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="password" type="password" name="contraseñaCliente" class="validate">
+                                <input id="password" type="password" name="contrasenaCliente" class="validate">
                                 <label for="password">Contraseña</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="password2" type="password" name="contraseñaCliente2" class="validate">
+                                <input id="password2" type="password" name="contrasenaCliente2" class="validate">
                                 <label for="password2">Repita la Contraseña</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s8">
-                                <g:link class="btn-flat" controller="principal" action="registro" name="registrar" value="registrar" type="button" onclick="contraseñas()">Registrarme</g:link>
+                                <g:submitButton class="btn-flat" name="registrar" value="registrar"></g:submitButton>
                             </div>
                             <div class="input-field col s4">
                                 <a href="#!" class=" modal-action modal-close waves-effect waves btn-flat">Cerrar</a>
