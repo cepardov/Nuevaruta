@@ -11,6 +11,15 @@
             <div class="row">
                 <div class="col s12">
                     <div class="card-panel teal z-depth-4">
+                        <div class="input-field col s12">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Seleccione una fecha</label>
+                        </div>
                         <span class="white-text">
                             Aqui va el formulario de arrendamiento...
                         </span>
@@ -74,16 +83,47 @@
 </div>
 
 
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <h4>Esto es el modal de Manzana</h4>
-        <p>Porque a manzana le gustan los modals</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves btn-flat">Cerrar</a>
-    </div>
-</div>
 
+<script>
+    (function(d,s,id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if(d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "http://connect.facebook.net/es_LA/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId : '1483731448310215',
+            cookie : true,
+            xfbml : true,
+            version : 'v2.0'
+        });
+    }
+
+    function ingresar() {
+        FB.login(function(response){
+            validarUsuario();
+        }, {scope: 'public_profile, email'});
+    }
+    function validarUsuario() {
+        FB.getLoginStatus(function(response) {
+            if(response.status == 'connected') {
+                FB.api('/me', function(response) {
+                    alert('Hola ' + response.name);
+                });
+            } else if(response.status == 'not_authorized') {
+                alert('Debes autorizar la app!');
+            } else {
+                alert('Debes ingresar a tu cuenta de Facebook!');
+            }
+        });
+    }
+
+    function tomardatosUsuario(){
+
+    }
+</script>
 </body>
 </html>
