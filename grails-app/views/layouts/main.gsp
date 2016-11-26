@@ -101,7 +101,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s8">
-                                <g:submitButton class="btn-flat" name="registrar" value="registrar"></g:submitButton>
+                                <g:submitButton class="btn-flat" name="registrar" value="registrar" onClick="comprobarClave()"></g:submitButton>
                             </div>
                             <div class="input-field col s4">
                                 <a href="#!" class=" modal-action modal-close waves-effect waves btn-flat">Cerrar</a>
@@ -135,8 +135,11 @@
             </div>
         </div>
     </footer>
-<g:if test="${flash.message}">
+<g:if test="${flash.message=="creado"}">
     <a id="clickButton" class="btn tooltipped" data-position="right" data-tooltip="Usuario Creado Correctamente" onclick="Materialize.toast('Usuario creado Correctamente', 5000,'')"></a>
+</g:if>
+<g:if test="${flash.message=="error"}">
+    <a id="clickButton" class="btn tooltipped" data-position="right" data-tooltip="Hubo un problema durante la creación del usuario" onclick="Materialize.toast('Hubo un problema durante la creación del usuario', 5000,'')"></a>
 </g:if>
 <!--Import jQuery before materialize.js-->
 <asset:javascript src="js/jquery-2.1.1.min.js"/>
@@ -180,6 +183,15 @@
     }
     window.onload = function() {
         document.getElementById('clickButton').click();
+    }
+    function comprobarClave(){
+        clave1 = getElementsByClassName("contrasenaCliente").value
+        clave2 = getElementsByClassName("contrasenaCliente").value
+
+        if (clave1 == clave2)
+            alert("Las dos claves son iguales...\nRealizaríamos las acciones del caso positivo")
+        else
+            alert("Las dos claves son distintas...\nRealizaríamos las acciones del caso negativo")
     }
 </script>
 </body>

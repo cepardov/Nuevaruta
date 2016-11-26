@@ -16,9 +16,13 @@ class PrincipalController {
         if(!c.save()){
             c.errors.each {
                 println it
+                flash.message= "error"
+                redirect(action:"index")
             }
+        }else{
+            flash.message= "creado"
+            redirect(action:"index")
         }
-        flash.message= "usuario"
-        redirect(action:"index")
+
     }
 }
