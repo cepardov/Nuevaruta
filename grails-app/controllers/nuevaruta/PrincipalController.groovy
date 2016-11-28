@@ -25,4 +25,7 @@ class PrincipalController {
         }
 
     }
+    def login(){
+        def c=Cliente.findByCorreoAndClave(params.correoCliente,params.claveCliente)
+    }
 }
