@@ -28,12 +28,62 @@
             </g:hasErrors>
             <g:form resource="${this.vehiculo}" method="PUT">
                 <g:hiddenField name="version" value="${this.vehiculo?.version}" />
-                <fieldset class="form">
-                    <f:all bean="vehiculo"/>
-                </fieldset>
-                <fieldset class="buttons">
-                    <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                </fieldset>
+                <div class="row">
+                <!---patente, marca, modelo, chasis, año, valor, estado, descripcion, valorHoraExtra--->
+                <g:form action="save">
+                    <div class="row">
+                        <fieldset class="form">
+                            <div class="input-field col s6">
+                                <label for="patente">Patente</label>
+                                <f:input property="patente" id="patente" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="marca">Marca</label>
+                                <f:input property="marca" id="marca" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="modelo">Modelo</label>
+                                <f:input property="modelo" id="modelo" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="año">Año</label>
+                                <f:input property="año" id="año" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <f:input property="sucursal" id="patente" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <f:input property="tipoVehiculo" id="patente" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="valor">Valor</label>
+                                <f:input property="valor" id="valor" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="valorh">Valor hora</label>
+                                <f:input property="valorHoraExtra" id="valorh" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="descripcion">Descripción</label>
+                                <f:input property="descripcion" id="descripcion" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <select name="estado">
+                                    <option value="" disabled selected>Elija opcion</option>
+                                    <option value="ACTIVO">Activo</option>
+                                    <option value="NO_ACTIVO">No Activo</option>
+                                </select>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="chasis">N° chasis</label>
+                                <f:input property="chasis" id="chasis" bean="vehiculo"/>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <fieldset class="buttons">
+                        <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+                    </fieldset>
+                </g:form>
             </g:form>
         </div>
     </body>

@@ -13,37 +13,37 @@
                     <div class="card-panel teal white-text z-depth-4">
                         <div class="row">
                             <h5>Rentar Ahora!</h5>
-                            <form class="col s12">
+                            <g:form action="index" method="get" class="col s12">
                                 <div class="input-field col s12">
-                                    <select>
+                                    <select name="tipo">
                                         <option value="" disabled selected>Elija opcion</option>
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
+                                        <g:each var="t" in="${tipovehiculo}">
+                                            <option value="${t.id}">${t.nombre}</option>
+                                        </g:each>
                                     </select>
                                     <label class="white-text">Tipo Vehiculo</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <select>
+                                    <select name="sucursal">
                                         <option value="" disabled selected>Elija opcion</option>
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
+                                        <g:each var="s" in="${sucursal}">
+                                            <option value="${s.id}">${s.region}</option>
+                                        </g:each>
                                     </select>
                                     <label class="white-text">Arriendo de movil en</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input type="date" class="datepicker">
-                                    <label class="white-text">Fecha de retiro</label>
+                                    <input type="date" name="fecharetiro" class="datepicker">
+                                    <label class="white-text" >Fecha de retiro</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input type="date" class="datepicker">
+                                    <input type="date" name="fechadevolucion" class="datepicker">
                                     <label class="white-text">Fecha de devolucion</label>
                                 </div>
                                 <div class="input-field col s12 center-align">
-                                    <a class="waves-effect waves-light btn tooltipped" data-position="right" data-tooltip="Lista vehiculos segun disponibilidad y tipo" href="#modalListaTipo"><i class="material-icons left">search</i>Buscar</a>
+                                    <g:submitButton  class="waves-effect waves-light btn tooltipped" data-position="right" name="buscar" value="busqueda"></g:submitButton>
                                 </div>
-                            </form>
+                            </g:form>
                         </div>
                     </div>
                 </div>
@@ -103,11 +103,25 @@
         </ul>
     </div>
 </div>
-
-<div id="modalListaTipo" class="modal">
+<g:if test="${vehiculo!=null}">
+    <a  id="clickButton" class="tooltipped waves-effect waves-light btn" data-position="right" data-tooltip="Abre un modal" href="#modalvehiculos">Test Modal</a>
+</g:if>
+<div id="modalvehiculos" class="modal">
     <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
+        <h4>Listado de autos</h4>
+        <ul class="collection">
+            <g:each var="v" in="${vehiculo}">
+                <li class="collection-item avatar">
+                    <img src="images/yuna.jpg" alt="" class="circle">
+                    <span class="title">${v.marca}</span>
+                    <p>${v.modelo} <br>
+                        ${v.descripcion}
+                    </p>
+                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    <g:link action="reserva" params="[idvehiculo:v.id]">Seleccionar</g:link>
+                </li>
+            </g:each>
+        </ul>
     </div>
     <div class="modal-footer">
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>

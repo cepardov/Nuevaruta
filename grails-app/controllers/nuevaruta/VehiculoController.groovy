@@ -14,7 +14,7 @@ class VehiculoController {
     }
 
     def show(Vehiculo vehiculo) {
-        respond vehiculo
+        redirect(controller:"vehiculo", action: "index")
     }
 
     def create() {

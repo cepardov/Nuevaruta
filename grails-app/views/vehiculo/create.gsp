@@ -39,16 +39,41 @@
                                 <f:input property="marca" id="marca" bean="vehiculo"/>
                             </div>
                             <div class="input-field col s6">
-                                <label for="patente">Patente</label>
-                                <f:input property="patente" id="patente" bean="vehiculo"/>
+                                <label for="modelo">Modelo</label>
+                                <f:input property="modelo" id="modelo" bean="vehiculo"/>
                             </div>
                             <div class="input-field col s6">
-                                <label for="patente">Patente</label>
-                                <f:input property="patente" id="patente" bean="vehiculo"/>
+                                <label for="año">Año</label>
+                                <f:input property="año" id="año" bean="vehiculo"/>
                             </div>
                             <div class="input-field col s6">
-                                <label for="patente">Patente</label>
-                                <f:input property="patente" id="patente" bean="vehiculo"/>
+                                <f:input property="sucursal" id="patente" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <f:input property="tipoVehiculo" id="patente" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="valor">Valor</label>
+                                <f:input property="valor" id="valor" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="valorh">Valor hora</label>
+                                <f:input property="valorHoraExtra" id="valorh" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="descripcion">Descripción</label>
+                                <f:input property="descripcion" id="descripcion" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <select name="estado">
+                                    <option value="" disabled selected>Elija opcion</option>
+                                    <option value="ACTIVO">Activo</option>
+                                    <option value="NO_ACTIVO">No Activo</option>
+                                </select>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="chasis">N° chasis</label>
+                                <f:input property="chasis" id="chasis" bean="vehiculo"/>
                             </div>
                         </fieldset>
                     </div>

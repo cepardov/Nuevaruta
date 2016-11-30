@@ -1,11 +1,12 @@
 package nuevaruta
 
 class Vehiculo {
-    String patente, marca, modelo, chasis, año, valor, estado, descripcion, valorHoraExtra
+    String patente, marca, modelo, chasis, estado, descripcion
+    Integer  año, valor, valorHoraExtra
     static belongsTo = [sucursal:Sucursal , tipoVehiculo:TipoVehiculo]
     static hasMany = [reserva:Reserva, imagen:Imagen]
     static constraints = {
         estado nullable: true, blank: true
-        valor nullable: true, blank: true
+        chasis nullable: true, blank: true
     }
 }

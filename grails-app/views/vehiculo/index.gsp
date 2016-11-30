@@ -20,8 +20,34 @@
                 <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>
                 </g:if>
-                <f:table collection="${vehiculoList}" />
-
+                <div class="row">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th data-field="id">Patente</th>
+                            <th data-field="name">Marca</th>
+                            <th data-field="price">Modelo</th>
+                            <th data-field="id">Año</th>
+                            <th data-field="name">Sucursal</th>
+                            <th data-field="price">Tipo de vehiculo</th>
+                            <th data-field="price">Valor Día</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <g:each var="v" in="${vehiculoList}">
+                            <tr>
+                                <td><g:link action="edit" id="${v.id}">${v.patente}</g:link></td>
+                                <td>${v.marca}</td>
+                                <td>${v.modelo}</td>
+                                <td>${v.año}</td>
+                                <td>${v.sucursal.region}</td>
+                                <td>${v.tipoVehiculo.nombre}</td>
+                                <td>${v.valor}</td>
+                            </tr>
+                        </g:each>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="pagination">
                     <g:paginate total="${vehiculoCount ?: 0}" />
                 </div>
