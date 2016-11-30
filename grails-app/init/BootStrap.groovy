@@ -1,4 +1,5 @@
 import nuevaruta.Sucursal
+import nuevaruta.TipoVehiculo
 import nuevaruta.Usuario
 
 class BootStrap {
@@ -27,7 +28,11 @@ class BootStrap {
                     correo: "contacto@nuevaruta.cl"
             ).save(failOnError:true)
         }
-
+        if (!TipoVehiculo.count()){
+            new TipoVehiculo(nombre: "sedan").save(failOnError:true)
+            new TipoVehiculo(nombre: "Estation Vagon").save(failOnError:true)
+            new TipoVehiculo(nombre: "Avan").save(failOnError:true)
+        }
     }
     def destroy = {
     }

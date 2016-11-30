@@ -25,14 +25,38 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form action="save">
-                <fieldset class="form">
-                    <f:all bean="vehiculo"/>
-                </fieldset>
-                <fieldset class="buttons">
-                    <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-                </fieldset>
-            </g:form>
+            <div class="row">
+                <!---patente, marca, modelo, chasis, año, valor, estado, descripcion, valorHoraExtra--->
+                <g:form action="save">
+                    <div class="row">
+                        <fieldset class="form">
+                            <div class="input-field col s6">
+                                <label for="patente">Patente</label>
+                                <f:input property="patente" id="patente" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="marca">Marca</label>
+                                <f:input property="marca" id="marca" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="patente">Patente</label>
+                                <f:input property="patente" id="patente" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="patente">Patente</label>
+                                <f:input property="patente" id="patente" bean="vehiculo"/>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="patente">Patente</label>
+                                <f:input property="patente" id="patente" bean="vehiculo"/>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <fieldset class="buttons">
+                        <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+                    </fieldset>
+                </g:form>
+            </div>
         </div>
     </body>
 </html>
