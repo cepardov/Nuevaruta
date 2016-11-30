@@ -12,6 +12,7 @@
                 <div class="col s12">
                     <div class="card-panel teal white-text z-depth-4">
                         <div class="row">
+                            <h5>Rentar Ahora!</h5>
                             <form class="col s12">
                                 <div class="input-field col s12">
                                     <select>
@@ -20,7 +21,7 @@
                                         <option value="2">Option 2</option>
                                         <option value="3">Option 3</option>
                                     </select>
-                                    <label class="white-text">Categorias</label>
+                                    <label class="white-text">Tipo Vehiculo</label>
                                 </div>
                                 <div class="input-field col s12">
                                     <select>
@@ -30,12 +31,18 @@
                                         <option value="3">Option 3</option>
                                     </select>
                                     <label class="white-text">Arriendo de movil en</label>
-                                    <p class="left-align">
-                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-                                        <label for="filled-in-box" class="white-text">Devolver en otra sucursal</label>
-                                    </p>
                                 </div>
-
+                                <div class="input-field col s12">
+                                    <input type="date" class="datepicker">
+                                    <label class="white-text">Fecha de retiro</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input type="date" class="datepicker">
+                                    <label class="white-text">Fecha de devolucion</label>
+                                </div>
+                                <div class="input-field col s12 center-align">
+                                    <a class="waves-effect waves-light btn tooltipped" data-position="right" data-tooltip="Lista vehiculos segun disponibilidad y tipo" href="#modalListaTipo"><i class="material-icons left">search</i>Buscar</a>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -97,7 +104,15 @@
     </div>
 </div>
 
-
+<div id="modalListaTipo" class="modal">
+    <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
 
 <script>
 
