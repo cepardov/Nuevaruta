@@ -78,16 +78,17 @@
             <a href="#" data-activates="slide-out" class="menu-s"><i class="material-icons">menu</i></a>
         </ul>
         <ul class="left">
-            <a class="flow-text m_title" href="<g:createLink controller="${controllerName}" action="index" />">${controllerName}s</a>
+            <a class="flow-text m_title" href="<g:createLink controller="${controllerName}" action="index" />"><g:layoutTitle/></a>
         </ul>
         <ul class="right">
-            <a href="#" data-activates="slide-out" class="menu-s"><i class="material-icons">menu</i></a>
+
         </ul>
     </div>
 </nav>
 
-    <div class="row"><!-- Base de la zona del contenido sector blanco -->
-        <div class="col s12 m3"><!-- Zona lateral izquerda -->
+    <div class="row">
+        <!--
+        <div class="col s12 m3">
             <div class="row">
                 <div class="row">
                     <div class="col s12">
@@ -101,7 +102,7 @@
                                 Reloading active: ${grails.util.Environment.reloadingAgentEnabled}<br><br>
                                 <a class="btn tooltipped" data-position="right" data-tooltip="Esto prueba un mensaje de informacion de prueba" onclick="Materialize.toast('Se esta incluyendo la funciones de mensajes', 5000,'')">Test de mesajes</a>
                                 <br></br>
-                                <!-- Modal Trigger -->
+                                <!-- Modal Trigger --><!--
                                 <a class="tooltipped waves-effect waves-light btn" data-position="right" data-tooltip="Abre un modal" href="#modal1">Test Modal</a>
                             </span>
                         </div>
@@ -109,6 +110,7 @@
                 </div>
             </div>
         </div>
+        -->
         <g:layoutBody/>
     </div>
     <!--Import jQuery before materialize.js-->
