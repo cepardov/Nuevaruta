@@ -3,7 +3,6 @@ package nuevaruta
 import org.apache.tools.ant.taskdefs.Get
 
 class PrincipalController {
-
     def index() {
         def tipovehiculo = TipoVehiculo.findAll()
         def sucursal = Sucursal.findAll()
@@ -22,11 +21,12 @@ class PrincipalController {
         if(!c.save()){
             c.errors.each {
                 println it
-                flash.message= "error"
+                flash.message= "error al crear el Cliente por favor Vuelva a intentarlo mas tarde"
                 redirect(action:"index")
             }
         }else{
-            flash.message= "creado"
+            flash.message= "El cliente ha sido creado exitosamente y a inciado su sesion"
+            session.clienteLogeado = c
             redirect(action:"index")
         }
 
@@ -36,5 +36,19 @@ class PrincipalController {
     }
     def login(){
         def c=Cliente.findByCorreoAndClave(params.correoCliente,params.claveCliente)
+        if(c){
+            session.clienteLogeado = c
+            println     "cliente: "+c.nombres
+            flash.message = "Sesión iniciada correctamente"
+            redirect controller: "principal", action: "index"
+        }else{
+            flash.message = "No podemos encontrarte, REGISTRATE POR FAVOR"
+            redirect controller: "principal", action: "index"
+        }
+    }
+    def logout (){
+        session.invalidate()
+        flash.message = "Sesión cerrada correctamente"
+        redirect controller: "principal", action: "index"
     }
 }

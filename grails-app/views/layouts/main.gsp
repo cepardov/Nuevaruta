@@ -23,8 +23,15 @@
                     <asset:image src="img/logo.png" alt="logo" class="img-responsive" width="18%" height="18%" style="padding:1%"/>
                 </a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a data-position="right" href="#modal2" class="sesion">Registrate</a></li>
-                    <li><a data-position="right" href="#modal1" class="sesion">Iniciar Sesión</a></li>
+                    <g:if test="${session.clienteLogeado!=null}">
+                        <li><a data-position="right" href="#modal1" class="sesion">${session.clienteLogeado.nombres} ${session.clienteLogeado.paterno} ${session.clienteLogeado.materno}</a></li>
+                        <li><a data-position="right" href="" class="sesion"><g:link controller="principal" action="logout">Salir</g:link></a></li>
+                    </g:if>
+                    <g:else>
+                        <li><a data-position="right" onclick="ingresar();">Ingresar Con Facebook</a>
+                        <li><a data-position="right" href="#modal2" class="sesion">Registrate</a></li>
+                        <li><a data-position="right" href="#modal1" class="sesion">Iniciar Sesión</a></li>
+                    </g:else>
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
@@ -43,30 +50,29 @@
 
     <!-- Modal Structure -->
         <div id="modal1" class="modal">
+            <g:form controller="principal" action="login">
             <div class="modal-content">
                 <h4>Iniciar sesión</h4>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="nombreUsuario" type="text" name="correoUsuario" class="validate">
-                        <label for="nombreUsuario">Correo Electrónic</label>
+                        <input id="nombreUsuario" type="text" name="correoCliente" class="validate">
+                        <label for="nombreUsuario">Correo Electrónico</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="passwordUsuario" type="password" name="contrañaUsuario" class="validate">
+                        <input id="passwordUsuario" type="password" name="claveCliente" class="validate">
                         <label for="passwordUsuario">Contraseña</label>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <div class="input-field col s4">
-                    <g:submitButton class="btn-flat" name="ingresar" value="Ingresar" type="button">Ingresar a mi sesión</g:submitButton>
-                </div>
-                <div class="input-field col s4">
-                    <button class="btn-flat" name="ingresar" type="button" onclick="ingresar()">Ingresar Con Facebook</button>
+                    <g:submitButton class="btn-flat" name="ingresar" value="Ingresar"></g:submitButton>
                 </div>
                 <div class="input-field col s4">
                     <a href="#!" class=" modal-action modal-close waves-effect waves btn-flat">Cerrar</a>
                 </div>
             </div>
+            </g:form>
         </div>
         <div id="modal2" class="modal">
             <div class="modal-content">
@@ -135,11 +141,8 @@
             </div>
         </div>
     </footer>
-<g:if test="${flash.message=="creado"}">
-    <a id="clickButton" class="btn tooltipped" data-position="right" data-tooltip="Usuario Creado Correctamente" onclick="Materialize.toast('Usuario creado Correctamente', 5000,'')"></a>
-</g:if>
-<g:if test="${flash.message=="error"}">
-    <a id="clickButton" class="btn tooltipped" data-position="right" data-tooltip="Hubo un problema durante la creación del usuario" onclick="Materialize.toast('Hubo un problema durante la creación del usuario', 5000,'')"></a>
+<g:if test="${flash.message!=null}">
+    <a id="clickButton" class="btn tooltipped" data-position="right" data-tooltip="${flash.message}" onclick="Materialize.toast('${flash.message}', 5000,'')"></a>
 </g:if>
 <!--Import jQuery before materialize.js-->
 <asset:javascript src="js/jquery-2.1.1.min.js"/>
@@ -150,7 +153,7 @@
         var js, fjs = d.getElementsByTagName(s)[0];
         if(d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = "http://connect.facebook.net/es_LA/sdk.js";
+        js.src = "http://connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
@@ -172,7 +175,10 @@
         FB.getLoginStatus(function(response) {
             if(response.status == 'connected') {
                 FB.api('/me', function(response) {
+                    var idfacebook= response.authResponse.userID;
                     alert('Hola ' + response.name);
+
+
                 });
             } else if(response.status == 'not_authorized') {
                 alert('Debes autorizar la app!');
@@ -183,15 +189,6 @@
     }
     window.onload = function() {
         document.getElementById('clickButton').click();
-    }
-    function comprobarClave(){
-        clave1 = getElementsByClassName("contrasenaCliente").value
-        clave2 = getElementsByClassName("contrasenaCliente").value
-
-        if (clave1 == clave2)
-            alert("Las dos claves son iguales...\nRealizaríamos las acciones del caso positivo")
-        else
-            alert("Las dos claves son distintas...\nRealizaríamos las acciones del caso negativo")
     }
 </script>
 </body>
