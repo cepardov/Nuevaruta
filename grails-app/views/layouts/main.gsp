@@ -30,37 +30,28 @@
                     <g:else>
                         <li><a data-position="right" onclick="ingresar();">Ingresar Con Facebook</a>
                         <li><a data-position="right" href="#modal2" class="sesion">Registrate</a></li>
-                        <li><a data-position="right" href="#modal1" class="sesion">Iniciar Sesión</a></li>
+                        <li><a data-position="right" href="#modal1" class="sesion" id="inciarsesion">Iniciar Sesión</a></li>
                     </g:else>
-                </ul>
-
-                <ul id="nav-mobile" class="side-nav">
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
-                        <li><g:link controller="${c.logicalPropertyName}">${c.name}</g:link></li>
-                    </g:each>
-                <!--<li><a href="${createLink(controller:'login', action:'login')}">Iniciar Sesión</a></li>-->
                 </ul>
                 <a href="" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
         </nav><!-- Aqui termina la continuacion del nav desde layout/main.gsp -->
-</head>
+    </head>
 
     <g:layoutBody/>
-
-
-    <!-- Modal Structure -->
+    <!-- Modal inicio de sesión -->
         <div id="modal1" class="modal">
-            <g:form controller="principal" action="login">
+            <g:form controller="principal" action="login" id="modalinicio">
             <div class="modal-content">
                 <h4>Iniciar sesión</h4>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="nombreUsuario" type="text" name="correoCliente" class="validate">
-                        <label for="nombreUsuario">Correo Electrónico</label>
+                        <input id="correoCliente" type="text" name="correoCliente" class="validate">
+                        <label for="correoCliente">Correo Electrónico</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="passwordUsuario" type="password" name="claveCliente" class="validate">
-                        <label for="passwordUsuario">Contraseña</label>
+                        <input id="passwordCliente" type="password" name="claveCliente" class="validate">
+                        <label for="passwordCliente">Contraseña</label>
                     </div>
                 </div>
             </div>
@@ -74,6 +65,7 @@
             </div>
             </g:form>
         </div>
+<!-----Modal de registro de usuario---->
         <div id="modal2" class="modal">
             <div class="modal-content">
                 <h4>Crear Cuenta</h4>
@@ -84,9 +76,13 @@
                                 <input id="first_name" type="text" name="nombresCliente" class="validate">
                                 <label for="first_name">Nombres</label>
                             </div>
-                            <div class="input-field col s6">
-                                <input id="last_name" type="text" name="apellidosCliente" class="validate">
-                                <label for="last_name">Apellidos</label>
+                            <div class="input-field col s3">
+                                <input id="last_name" type="text" name="paternoCliente" class="validate">
+                                <label for="last_name">Apellido paterno</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <input id="materno" type="text" name="maternoCliente" class="validate">
+                                <label for="materno">Apellido Materno</label>
                             </div>
                         </div>
                         <div class="row">
@@ -127,7 +123,7 @@
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><g:link controller="dashboard" action="index" class="grey-text text-lighten-3">Ingeso sesión administrador</g:link></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
@@ -142,8 +138,14 @@
         </div>
     </footer>
 <g:if test="${flash.message!=null}">
-    <a id="clickButton" class="btn tooltipped" data-position="right" data-tooltip="${flash.message}" onclick="Materialize.toast('${flash.message}', 5000,'')"></a>
+    <a id="clickButton" data-position="right" onclick="Materialize.toast('${flash.message}', 5000,'')"></a>
 </g:if>
+<g:form controller="principal" action="loginfacebook" name="formularioFacebook">
+    <input type="hidden" name="nombreClienteFacebook" id="nombreClienteF">
+    <input type="hidden" name="correoClienteFacebook" id="correoClienteF">
+    <input type="hidden" name="idClienteFacebook" id="idClienteF">
+    <g:submitButton name="enviar" class="hidden-sm" id="enviarFacebook"></g:submitButton>
+</g:form>
 <!--Import jQuery before materialize.js-->
 <asset:javascript src="js/jquery-2.1.1.min.js"/>
 <asset:javascript src="js/materialize.js"/>
@@ -174,11 +176,14 @@
     function validarUsuario() {
         FB.getLoginStatus(function(response) {
             if(response.status == 'connected') {
-                FB.api('/me', function(response) {
-                    var idfacebook= response.authResponse.userID;
-                    alert('Hola ' + response.name);
-
-
+                FB.api('me?fields=id,name,email,birthday,permissions', function(response) {
+                    var nombrecompleto =response.name;
+                    var correo = response.email;
+                    var idfacebook=response.id;
+                    document.getElementById('nombreClienteF').value=nombrecompleto;
+                    document.getElementById('correoClienteF').value=correo;
+                    document.getElementById('idClienteF').value=idfacebook;
+                    document.getElementById('enviarFacebook').click();
                 });
             } else if(response.status == 'not_authorized') {
                 alert('Debes autorizar la app!');

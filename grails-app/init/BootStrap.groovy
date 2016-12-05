@@ -1,6 +1,7 @@
 import nuevaruta.Sucursal
 import nuevaruta.TipoVehiculo
 import nuevaruta.Usuario
+import nuevaruta.Vehiculo
 
 class BootStrap {
 
@@ -32,6 +33,19 @@ class BootStrap {
             new TipoVehiculo(nombre: "sedan").save(failOnError:true)
             new TipoVehiculo(nombre: "Estation Vagon").save(failOnError:true)
             new TipoVehiculo(nombre: "Avan").save(failOnError:true)
+        }
+        if (!Vehiculo.count()){
+            new Vehiculo(marca: "toyota",
+                    modelo: "yaris",
+                    patente: "bk-bx-75",
+                    estado: "ACTIVO",
+                    descripcion: "vehiculo de gran tamaño y económico",
+                    sucursal: 1,
+                    año: 2016,
+                    valor: 14400,
+                    valorHoraExtra: 7800,
+                    tipoVehiculo: 1
+            ).save(failOnError:true)
         }
     }
     def destroy = {

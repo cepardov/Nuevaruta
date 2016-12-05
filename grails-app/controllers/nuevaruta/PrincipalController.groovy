@@ -12,11 +12,22 @@ class PrincipalController {
         }
         [tipovehiculo:tipovehiculo, sucursal:sucursal, vehiculo:vehiculo]
     }
-    def facebook(){
+    def reserva(){
+        println "parametro" +params.idvehiculo
+        def cliente=null
+        def vehiculo= Vehiculo.findById(params.idvehiculo)
+        def sucursal= Sucursal.findById(params.idsucursal)
+        if(session.clienteLogeado){
+            cliente=Cliente.findByCorreo(session.clienteLogeado.correo)
+        }else{
+            respond new Cliente(params), model:[vehiculo: vehiculo, cliente:cliente, sucursal:sucursal]
+        }
+        [vehiculo: vehiculo, cliente:cliente, sucursal:sucursal]
 
     }
+    //Registro y sistema de logeo
     def registro(){
-        def c= new Cliente(nombres: params.nombresCliente,correo: params.correoCliente, paterno: params.apellidosCliente, clave: params.contrasenaCliente)
+        def c= new Cliente(nombres: params.nombresCliente,correo: params.correoCliente, paterno: params.paternoCliente, materno: params.maternoCliente, clave: params.contrasenaCliente)
         c.save(flush:true)
         if(!c.save()){
             c.errors.each {
@@ -31,9 +42,6 @@ class PrincipalController {
         }
 
     }
-    def reserva(){
-        println "parametro" +params.id
-    }
     def login(){
         def c=Cliente.findByCorreoAndClave(params.correoCliente,params.claveCliente)
         if(c){
@@ -44,6 +52,28 @@ class PrincipalController {
         }else{
             flash.message = "No podemos encontrarte, REGISTRATE POR FAVOR"
             redirect controller: "principal", action: "index"
+        }
+    }
+    def loginfacebook(){
+        println "nombre y correo :"+params.nombreClienteFacebook+" "+params.correoClienteFacebook;
+        if(params.nombreClienteFacebook&&params.correoClienteFacebook&&params.idClienteFacebook!=null){
+            def cliente= Cliente.findByCorreo(params.correoClienteFacebook);
+            if(cliente){
+                session.clienteLogeado = cliente
+                flash.message = "Sesión iniciada correctamente"
+                redirect(controller: "principal", action: "index")
+            }else {
+                def c = new Cliente(nombres: params.nombreClienteFacebook, correo: params.correoClienteFacebook, facebookID: params.idClienteFacebook)
+                        .save(flush: true)
+                if (c) {
+                    session.clienteLogeado = c
+                    flash.message = "Sesión iniciada correctamente"
+                    redirect controller: "principal", action: "index"
+                } else {
+                    flash.message = "No podemos registrarte, Revisa tus credenciales de facebook"
+                    redirect controller: "principal", action: "index"
+                }
+            }
         }
     }
     def logout (){
