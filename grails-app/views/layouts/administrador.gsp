@@ -117,6 +117,11 @@
     <asset:javascript src="js/jquery-2.1.1.min.js"/>
     <asset:javascript src="js/materialize.js"/>
     <asset:javascript src="js/forms.js"/>
-</body>
+    <script>
+        window.onload = function() {
+            document.getElementById('clickButton').click();
+        }
+    </script>
+    </body>
 </html>
 

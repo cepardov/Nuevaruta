@@ -8,9 +8,15 @@ class VehiculoController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
+    def index(Integer max,Vehiculo vehiculo) {
+        def vehiculos = Vehiculo.list(params);
         params.max = Math.min(max ?: 10, 100)
-        respond Vehiculo.list(params), model:[vehiculoCount: Vehiculo.count()]
+        if(params.id!=null){
+            respond vehiculo, model:[vehiculoCount: Vehiculo.count(), vehiculoList:vehiculos]
+        }else{
+            respond new Vehiculo(params), model:[vehiculoCount: Vehiculo.count(), vehiculoList:vehiculos]
+        }
+
     }
 
     def show(Vehiculo vehiculo) {
@@ -48,6 +54,11 @@ class VehiculoController {
 
     def edit(Vehiculo vehiculo) {
         respond vehiculo
+    }
+    def eliminar(){
+        def vehiculo = Vehiculo.get(params.id)
+        vehiculo.delete(flush:true)
+        redirect (controller: "vehiculo", action: "index")
     }
 
     @Transactional
