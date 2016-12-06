@@ -18,15 +18,6 @@ jQuery(document).ready(function ($) {
 		$('select').material_select();
 	});
 });
-$('.modal').modal({
-		dismissible: true, // Modal can be dismissed by clicking outside of the modal
-		opacity: .8, // Opacity of modal background
-		in_duration: 300, // Transition in duration
-		out_duration: 200, // Transition out duration
-		starting_top: '4%', // Starting top style attribute
-		ending_top: '10%', // Ending top style attribute
-	}
-);
 $(document).ready(function(){
     $('.carousel').carousel();
 });
@@ -41,3 +32,13 @@ $('.menu-s').sideNav({
 	}
 );
 $(".button-collapse").sideNav();
+
+$('.modal').modal({
+		dismissible: false, // Modal can be dismissed by clicking outside of the modal
+		opacity: .4, // Opacity of modal background
+		in_duration: 400, // Transition in duration
+		out_duration: 300, // Transition out duration
+		starting_top: '4%', // Starting top style attribute
+		ending_top: '10%', // Ending top style attribute
+	}
+);

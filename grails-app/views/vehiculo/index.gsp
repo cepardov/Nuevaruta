@@ -36,8 +36,10 @@
                         <td>${v.sucursal.region}</td>
                         <td>${v.tipoVehiculo.nombre}</td>
                         <td>${v.valor}</td>
-                        <td><g:link class="btn-floating waves-effect waves-light yellow darken-2" id="${v.id}" data-position="left" data-delay="50" data-tooltip="Agregar ${controllerName}"><i class="material-icons">edit</i></g:link></td>
-                        <td><g:link class="btn-floating waves-effect waves-light red" action="eliminar" id="${v.id}"><i class="material-icons">delete</i></g:link></td>
+                        <td>
+                            <g:link class="btn-floating waves-effect waves-light yellow darken-2 tooltipped" id="${v.id}" data-position="left" data-delay="50" data-tooltip="Editar ${controllerName}"><i class="material-icons">edit</i></g:link>
+                            <g:link class="btn-floating waves-effect waves-light red tooltipped" action="eliminar" id="${v.id}" data-position="left" data-delay="50" data-tooltip="Eliminar ${controllerName}"><i class="material-icons">delete</i></g:link>
+                        </td>
                     </tr>
                 </g:each>
                 </tbody>
@@ -112,12 +114,15 @@
                     <fieldset class="buttons">
                         <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                     </fieldset>
+                    <!-- Menu Modal Edit -->
+                    <div class="fixed-action-btn">
+                        <button name="create" class="save btn-floating btn-large teal tooltipped" value="${message(code: 'default.button.create.label', default: 'Create')}" type="submit"><i class="material-icons right">send</i></button>
+                        <a class="modal-action modal-close btn-floating btn-large red tooltipped" href="<g:createLink controller="vehiculo" action="index" />" data-position="left" data-delay="50" data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
+                    </div>
                 </g:form>
             </div>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
+
     </div>
 
     <!-- Modal Creacion Structure -->
@@ -179,16 +184,17 @@
                     <fieldset class="buttons">
                         <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                     </fieldset>
+                    <!-- Menu Modal Create-->
+                    <div class="fixed-action-btn">
+                        <a class="modal-action modal-close btn-floating btn-large red tooltipped" href="#!" data-position="left" data-delay="50" data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
+                    </div>
                 </g:form>
             </div>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
+
     </div>
-</div>
-<g:if test="${params.id}">
-    <a type="hidden" href="#modalEdicion" data-position="left" data-delay="50" id="clickButton"></a>
-</g:if>
+    <g:if test="${params.id}">
+        <a type="hidden" href="#modalEdicion" data-position="left" data-delay="50" id="clickButton"></a>
+    </g:if>
 </body>
 </html>
