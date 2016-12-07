@@ -7,6 +7,9 @@ class PrincipalController {
         def tipovehiculo = TipoVehiculo.findAll()
         def sucursal = Sucursal.findAll()
         def vehiculo=null
+        if(params.login){
+            loginfacebook()
+        }
         if(params.tipo&&params.sucursal&&params.fecharetiro&&params.fechadevolucion!=null){
             vehiculo=Vehiculo.executeQuery("from Vehiculo as v where v.sucursal="+params.sucursal+"and v.tipoVehiculo="+params.tipo)
         }
@@ -33,7 +36,7 @@ class PrincipalController {
             c.errors.each {
                 println it
                 flash.message= "error al crear el Cliente por favor Vuelva a intentarlo mas tarde"
-                redirect(action:"index")
+                /// /redirect(action:"index")
             }
         }else{
             flash.message= "El cliente ha sido creado exitosamente y a inciado su sesion"
@@ -61,7 +64,8 @@ class PrincipalController {
             if(cliente){
                 session.clienteLogeado = cliente
                 flash.message = "Sesión iniciada correctamente"
-                redirect(controller: "principal", action: "index")
+                println "Parametros : "+params.parametros
+                redirect ()
             }else {
                 def c = new Cliente(nombres: params.nombreClienteFacebook, correo: params.correoClienteFacebook, facebookID: params.idClienteFacebook)
                         .save(flush: true)
