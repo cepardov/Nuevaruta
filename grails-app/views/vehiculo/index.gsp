@@ -14,9 +14,10 @@
             <div class="message" role="status">${flash.message}</div>
         </g:if>
         <div class="row">
-            <table class="highlight centered">
+            <table class="responsive-table bordered highlight centered">
                 <thead>
                 <tr>
+                    <th></th>
                     <th data-field="id">Patente</th>
                     <th data-field="name">Marca</th>
                     <th data-field="price">Modelo</th>
@@ -62,62 +63,67 @@
     <div id="modalEdicion" class="modal bottom-sheet">
         <div class="modal-content">
             <h5>Editar ${controllerName}</h5>
-
             <div class="row">
             <!---patente, marca, modelo, chasis, año, valor, estado, descripcion, valorHoraExtra--->
                 <g:form class="col s12" resource="${this.vehiculo}" method="PUT">
-                    <div class="input-field col s6">
-                        <f:input property="patente" id="patente" bean="vehiculo"/>
-                        <label for="patente">Patente</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <label for="marca">Marca</label>
-                        <f:input property="marca" id="marca" bean="vehiculo"/>
-                    </div>
-                    <div class="input-field col s6">
-                        <label for="modelo">Modelo</label>
-                        <f:input property="modelo" id="modelo" bean="vehiculo"/>
-                    </div>
-                    <div class="input-field col s6">
-                        <label for="año">Año</label>
-                        <f:input property="año" id="año" bean="vehiculo"/>
-                    </div>
-                    <div class="input-field col s6">
-                        <f:input property="sucursal" id="patente" bean="vehiculo"/>
-                    </div>
-                    <div class="input-field col s6">
-                        <f:input property="tipoVehiculo" id="patente" bean="vehiculo"/>
-                    </div>
-                    <div class="input-field col s6">
-                        <label for="valor">Valor</label>
-                        <f:input property="valor" id="valor" bean="vehiculo"/>
-                    </div>
-                    <div class="input-field col s6">
-                        <label for="valorh">Valor hora</label>
-                        <f:input property="valorHoraExtra" id="valorh" bean="vehiculo"/>
-                    </div>
-                    <div class="input-field col s6">
-                        <label for="descripcion">Descripción</label>
-                        <f:input property="descripcion" id="descripcion" bean="vehiculo"/>
-                    </div>
-                    <div class="input-field col s6">
-                        <select name="estado">
-                            <option value="" disabled>Elija opcion</option>
-                            <option value="ACTIVO">Activo</option>
-                            <option value="NO_ACTIVO">No Activo</option>
-                        </select>
-                    </div>
-                    <div class="input-field col s6">
-                        <label for="chasis">N° chasis</label>
-                        <f:input property="chasis" id="chasis" bean="vehiculo"/>
-                    </div>
-                    <div class="file-field input-field col s6">
-                        <div class="btn">
-                            <span>Archivo</span>
-                            <input type="file" multiple>
+                    <div class="row">
+                        <div class="input-field col s12 m1">
+                            <f:input class="tooltipped" length="8" maxlength="8" property="patente" id="patente" bean="vehiculo" data-position="bottom" data-delay="50" data-tooltip="Ej: AA-BB-88"/>
+                            <label for="patente">Patente</label>
                         </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" placeholder="Suba uno a mas archivos">
+                        <div class="input-field col s12 m2">
+                            <label for="marca">Marca</label>
+                            <f:input property="marca" id="marca" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <label for="modelo">Modelo</label>
+                            <f:input property="modelo" id="modelo" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m1">
+                            <label for="año">Año</label>
+                            <f:input type="number" property="año" id="año" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <label for="chasis">N° chasis</label>
+                            <f:input property="chasis" id="chasis" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m4">
+                            <label for="descripcion">Descripción</label>
+                            <f:input class="materialize-textarea" length="99" maxlength="100" property="descripcion" id="descripcion" bean="vehiculo"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m3">
+                            <f:input property="sucursal" id="patente" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m3">
+                            <f:input property="tipoVehiculo" id="patente" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <label for="valor">Valor</label>
+                            <f:input type="number" property="valor" id="valor" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <label for="valorh">Valor hora</label>
+                            <f:input type="number" property="valorHoraExtra" id="valorh" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m2 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Indique si este vehiculo esta disponible para ser alquilado">
+                            <select name="estado">
+                                <option value="" disabled>Elija opcion</option>
+                                <option value="ACTIVO">Activo</option>
+                                <option value="NO_ACTIVO">No Activo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="file-field input-field col s12 m6">
+                            <div class="btn">
+                                <span>Archivo</span>
+                                <input type="file" accept="image/jpeg,image/jpg,image/png">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" placeholder="Suba imagen de vehiculo" type="text">
+                            </div>
                         </div>
                     </div>
                     <!-- Menu Modal Edit -->
@@ -134,72 +140,74 @@
     <!-- Modal Creacion Structure -->
     <div id="modalCreate" class="modal bottom-sheet">
         <div class="modal-content">
-            <h4>Modal Header</h4>
+            <h5>Crear ${controllerName}</h5>
             <div class="row">
             <!---patente, marca, modelo, chasis, año, valor, estado, descripcion, valorHoraExtra--->
                 <g:form action="save">
                     <div class="row">
-                        <fieldset class="form">
-                            <div class="input-field col s6">
-                                <label for="patente">Patente</label>
-                                <f:input property="patente" id="patente" bean="vehiculo"/>
-                            </div>
-                            <div class="input-field col s6">
-                                <label for="marca">Marca</label>
-                                <f:input property="marca" id="marca" bean="vehiculo"/>
-                            </div>
-                            <div class="input-field col s6">
-                                <label for="modelo">Modelo</label>
-                                <f:input property="modelo" id="modelo" bean="vehiculo"/>
-                            </div>
-                            <div class="input-field col s6">
-                                <label for="año">Año</label>
-                                <f:input property="año" id="año" bean="vehiculo"/>
-                            </div>
-                            <div class="input-field col s6">
-                                <f:input property="sucursal" id="patente" bean="vehiculo"/>
-                            </div>
-                            <div class="input-field col s6">
-                                <f:input property="tipoVehiculo" id="patente" bean="vehiculo"/>
-                            </div>
-                            <div class="input-field col s6">
-                                <label for="valor">Valor</label>
-                                <f:input property="valor" id="valor" bean="vehiculo"/>
-                            </div>
-                            <div class="input-field col s6">
-                                <label for="valorh">Valor hora</label>
-                                <f:input property="valorHoraExtra" id="valorh" bean="vehiculo"/>
-                            </div>
-                            <div class="input-field col s6">
-                                <label for="descripcion">Descripción</label>
-                                <f:input property="descripcion" id="descripcion" bean="vehiculo"/>
-                            </div>
-                            <div class="switch">
-                                <label>
-                                    Off
-                                    <input type="checkbox">
-                                    <span class="lever"></span>
-                                    On
-                                </label>
-                            </div>
-                            <div class="input-field col s6">
-                                <select name="estado">
-                                    <option value="" disabled selected>Elija opcion</option>
-                                    <option value="ACTIVO">Activo</option>
-                                    <option value="NO_ACTIVO">No Activo</option>
-                                </select>
-                            </div>
-                            <div class="input-field col s6">
-                                <label for="chasis">N° chasis</label>
-                                <f:input property="chasis" id="chasis" bean="vehiculo"/>
-                            </div>
-                        </fieldset>
+                        <div class="input-field col s12 m1">
+                            <label for="patente">Patente</label>
+                            <f:input class="tooltipped" length="8" maxlength="8" property="patente" id="patente" bean="vehiculo" data-position="bottom" data-delay="50" data-tooltip="Ej: AA-BB-88"/>
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <label for="marca">Marca</label>
+                            <f:input property="marca" id="marca" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <label for="modelo">Modelo</label>
+                            <f:input property="modelo" id="modelo" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m1">
+                            <label for="año">Año</label>
+                            <f:input type="number" property="año" id="año" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <label for="chasis">N° chasis</label>
+                            <f:input property="chasis" id="chasis" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m4">
+                            <label for="descripcion">Descripción</label>
+                            <f:input class="materialize-textarea" length="99" maxlength="100" property="descripcion" id="descripcion" bean="vehiculo"/>
+                        </div>
                     </div>
-                    <fieldset class="buttons">
-                        <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-                    </fieldset>
+                    <div class="row">
+                        <div class="input-field col s12 m3">
+                            <f:input property="sucursal" id="patente" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m3">
+                            <f:input property="tipoVehiculo" id="patente" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <label for="valor">Valor</label>
+                            <f:input type="number" property="valor" id="valor" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m2">
+                            <label for="valorh">Valor hora</label>
+                            <f:input type="number" property="valorHoraExtra" id="valorh" bean="vehiculo"/>
+                        </div>
+                        <div class="input-field col s12 m2 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Indique si este vehiculo esta disponible para ser alquilado">
+                            <select name="estado">
+                                <option value="" disabled selected>Elija opcion</option>
+                                <option value="ACTIVO">Activo</option>
+                                <option value="NO_ACTIVO">No Activo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="file-field input-field col s12 m6">
+                            <div class="btn">
+                                <span>Archivo</span>
+                                <input type="file" accept="image/jpeg,image/jpg,image/png">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" placeholder="Suba imagen de vehiculo" type="text">
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Menu Modal Create-->
                     <div class="fixed-action-btn">
+                        <button name="create" class="save btn-floating btn-large teal tooltipped" value="${message(code: 'default.button.create.label', default: 'Create')}" type="submit" data-position="left" data-delay="50" data-tooltip="Guardar ${controllerName}"><i class="material-icons right">send</i></button>
                         <a class="modal-action modal-close btn-floating btn-large red tooltipped" href="#!" data-position="left" data-delay="50" data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
                     </div>
                 </g:form>
