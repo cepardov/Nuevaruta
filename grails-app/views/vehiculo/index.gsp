@@ -5,7 +5,6 @@
     <g:set var="entityName" value="${message(code: 'vehiculo.label', default: 'Vehiculo')}" />
     <title><g:message code="default.list.label" args="[entityName]" /></title>
 </head>
-
 <body>
 <div class="slider col s12 m12">
     <div id="list-vehiculo" class="content scaffold-list" role="main">
@@ -54,9 +53,9 @@
         </div>
     </div>
 
-    <!-- Menu de edicion -->
+    <!-- Menu flotante Crear -->
     <div class="fixed-action-btn">
-        <a class="create btn-floating btn-large teal tooltipped" href="#modalCreate" data-position="left" data-delay="50" data-tooltip="Agregar ${controllerName}"><i class="material-icons">add</i></a>
+        <a class="create waves-effect waves-light btn-floating btn-large teal tooltipped" href="#modalCreate" data-position="left" data-delay="50" data-tooltip="Agregar ${controllerName}"><i class="material-icons">add</i></a>
     </div>
 
     <!-- Modal Edition Structure -->
@@ -128,8 +127,8 @@
                     </div>
                     <!-- Menu Modal Edit -->
                     <div class="fixed-action-btn">
-                        <button name="create" class="save btn-floating btn-large teal tooltipped" value="${message(code: 'default.button.create.label', default: 'Create')}" type="submit" data-position="left" data-delay="50" data-tooltip="Guardar ${controllerName}"><i class="material-icons right">send</i></button>
-                        <a class="modal-action modal-close btn-floating btn-large red tooltipped" href="<g:createLink controller="vehiculo" action="index" />" data-position="left" data-delay="50" data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
+                        <button name="create" class="save waves-effect waves-light btn-floating btn-large teal tooltipped" value="${message(code: 'default.button.create.label', default: 'Create')}" type="submit" data-position="left" data-delay="50" data-tooltip="Guardar ${controllerName}"><i class="material-icons right">send</i></button>
+                        <a class="modal-action modal-close waves-effect waves-light btn-floating btn-large red tooltipped" href="<g:createLink controller="vehiculo" action="index" />" data-position="left" data-delay="50" data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
                     </div>
                 </g:form>
             </div>
@@ -207,13 +206,12 @@
 
                     <!-- Menu Modal Create-->
                     <div class="fixed-action-btn">
-                        <button name="create" class="save btn-floating btn-large teal tooltipped" value="${message(code: 'default.button.create.label', default: 'Create')}" type="submit" data-position="left" data-delay="50" data-tooltip="Guardar ${controllerName}"><i class="material-icons right">send</i></button>
-                        <a class="modal-action modal-close btn-floating btn-large red tooltipped" href="#!" data-position="left" data-delay="50" data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
+                        <button name="create" class="save waves-effect waves-light btn-floating btn-large teal tooltipped" value="${message(code: 'default.button.create.label', default: 'Create')}" type="submit" data-position="left" data-delay="50" data-tooltip="Guardar ${controllerName}"><i class="material-icons right">send</i></button>
+                        <a class="modal-action modal-close waves-effect waves-light btn-floating btn-large red tooltipped" href="#!" data-position="left" data-delay="50" data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
                     </div>
                 </g:form>
             </div>
         </div>
-
     </div>
     <g:if test="${params.id}">
         <a type="hidden" href="#modalEdicion" data-position="left" data-delay="50" id="clickButton"></a>
