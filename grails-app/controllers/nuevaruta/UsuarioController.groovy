@@ -8,13 +8,19 @@ class UsuarioController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
+    def index(Integer max,Usuario usuario) {
+        def usuarios = Usuario.list(params);
         params.max = Math.min(max ?: 10, 100)
-        respond Usuario.list(params), model:[usuarioCount: Usuario.count()]
+        if(params.id!=null){
+            respond usuario, model:[usuarioCount: Usuario.count(), usuarioList:usuarios]
+        }else{
+            respond new Usuario(params), model:[usuarioCount: Usuario.count(), usuarioList:usuarios]
+        }
+
     }
 
     def show(Usuario usuario) {
-        respond usuario
+        redirect(controller:"usuario", action: "index")
     }
 
     def create() {
@@ -48,6 +54,11 @@ class UsuarioController {
 
     def edit(Usuario usuario) {
         respond usuario
+    }
+    def eliminar(){
+        def usuario = Usuario.get(params.id)
+        usuario.delete(flush:true)
+        redirect (controller: "usuario", action: "index")
     }
 
     @Transactional
