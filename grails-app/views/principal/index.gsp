@@ -122,7 +122,7 @@
                         ${v.descripcion}
                     </p>
                     <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                    <g:link action="reserva" params="[idvehiculo:v.id, idsucursal:v.sucursalId]">Seleccionar</g:link>
+                    <g:link action="reserva" params="[idvehiculo:v.id, idsucursal:v.sucursalId, fecharetiro:params.fecharetiro, fechadevolucion:params.fechadevolucion]">Seleccionar</g:link>
                 </li>
             </g:each>
         </ul>
@@ -131,7 +131,6 @@
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
 </div>
-
 <script>
 
 </script>

@@ -141,6 +141,9 @@
     <a id="clickButton" data-position="right" onclick="Materialize.toast('${flash.message}', 5000,'')"></a>
 </g:if>
 <g:form controller="principal" action="loginfacebook" name="formularioFacebook">
+    <input type="hidden" name="controlador" value="${controllerName}">
+    <input type="hidden" name="accion" value="${actionName}">
+    <input type="hidden" name="parametros" value="${params}">
     <input type="hidden" name="nombreClienteFacebook" id="nombreClienteF">
     <input type="hidden" name="correoClienteFacebook" id="correoClienteF">
     <input type="hidden" name="idClienteFacebook" id="idClienteF">

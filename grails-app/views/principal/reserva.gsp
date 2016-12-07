@@ -102,6 +102,20 @@
                                     <label for="kilometraje">Kilometraje Actual</label>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="input-field col s3">
+                                    <input type="text" value="${params.fecharetiro}">
+                                    <label for="valor">Fecha retiro</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <input type="text" value="${params.fechadevolucion}">
+                                    <label for="valor">Fecha Devolución</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <input property="kilometraje" bean="vehiculo" id="kilometraje" type="text" class="validate">
+                                    <label for="kilometraje">Total valor reserva</label>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
