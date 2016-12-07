@@ -21,6 +21,7 @@ class VehiculoController {
 
     def show(Vehiculo vehiculo) {
         redirect(controller:"vehiculo", action: "index")
+        flash.message = message(code: 'default.created.message', args: [message(code: 'vehiculo.label', default: 'Vehiculo'), vehiculo.id])
     }
 
     def create() {
@@ -40,7 +41,6 @@ class VehiculoController {
             respond vehiculo.errors, view:'create'
             return
         }
-
         vehiculo.save flush:true
 
         request.withFormat {

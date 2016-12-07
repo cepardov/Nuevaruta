@@ -35,7 +35,7 @@
             <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
                 <li><g:link controller="${c.logicalPropertyName}">${c.name}</g:link></li>
             </g:each>
-        <li><a href="${createLink(controller:'login', action:'login')}">Cerrar Sesión</a></li>
+            <li><a href="${createLink(controller:'login', action:'login')}">Cerrar Sesión</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -46,27 +46,27 @@
         <ul id="slide-out" class="side-nav">
             <li>
                 <div class="userView">
-                <div class="background">
-                    <img src="http://materializecss.com/images/office.jpg">
-                </div>
-                <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
-                <a href="#!name"><span class="white-text name">John Doe</span></a>
-                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                    <div class="background">
+                        <img src="http://materializecss.com/images/office.jpg">
+                    </div>
+                    <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
+                    <a href="#!name"><span class="white-text name">John Doe</span></a>
+                    <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
                 </div>
             </li>
             <li><a href="<g:createLink controller="dashboard" action="index" />"><i class="material-icons">home</i>Página Principal</a></li>
             <li><div class="divider"></div></li>
             <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
                 <li><g:link controller="${c.logicalPropertyName}"><i class="material-icons">
-                <g:if test="${c.name=="Usuario"}">person</g:if>
-                <g:if test="${c.name=="Contrato"}">settings</g:if>
-                <g:if test="${c.name=="Dashboard"}">person</g:if>
-                <g:if test="${c.name=="Pago"}">person</g:if>
-                <g:if test="${c.name=="Principal"}">person</g:if>
-                <g:if test="${c.name=="Reserva"}">person</g:if>
-                <g:if test="${c.name=="Sucursal"}">person</g:if>
-                <g:if test="${c.name=="Vehiculo"}">person</g:if>
-                <g:if test="${c.name=="Cliente"}">people</g:if>
+                    <g:if test="${c.name=="Usuario"}">person</g:if>
+                    <g:if test="${c.name=="Contrato"}">settings</g:if>
+                    <g:if test="${c.name=="Dashboard"}">person</g:if>
+                    <g:if test="${c.name=="Pago"}">person</g:if>
+                    <g:if test="${c.name=="Principal"}">person</g:if>
+                    <g:if test="${c.name=="Reserva"}">person</g:if>
+                    <g:if test="${c.name=="Sucursal"}">person</g:if>
+                    <g:if test="${c.name=="Vehiculo"}">person</g:if>
+                    <g:if test="${c.name=="Cliente"}">people</g:if>
                 </i>${c.name}</g:link></li>
             </g:each>
             <li><div class="divider"></div></li>
@@ -92,8 +92,8 @@
     </div>
 </nav>
 
-    <div class="row">
-        <!--
+<div class="row">
+    <!--
         <div class="col s12 m3">
             <div class="row">
                 <div class="row">
@@ -117,17 +117,23 @@
             </div>
         </div>
         -->
-        <g:layoutBody/>
-    </div>
-    <!--Import jQuery before materialize.js-->
-    <asset:javascript src="js/jquery-2.1.1.min.js"/>
-    <asset:javascript src="js/materialize.js"/>
-    <asset:javascript src="js/forms.js"/>
+    <g:layoutBody/>
+</div>
+<!--Import jQuery before materialize.js-->
+<asset:javascript src="js/jquery-2.1.1.min.js"/>
+<asset:javascript src="js/materialize.js"/>
+<asset:javascript src="js/forms.js"/>
+<script>
+    window.onload = function() {
+        document.getElementById('clickButton').click();
+    }
+</script>
+<g:if test="${flash.message}">
     <script>
-        window.onload = function() {
-            document.getElementById('clickButton').click();
-        }
+        Materialize.toast('${flash.message}', 4000);
     </script>
-    </body>
+</g:if>
+
+</body>
 </html>
 
