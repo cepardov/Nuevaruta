@@ -78,6 +78,12 @@
             <a href="#" data-activates="slide-out" class="menu-s"><i class="material-icons">menu</i></a>
         </ul>
         <ul class="left">
+            <a class="flow-text m_title" href="<g:createLink controller="dashboard" action="index" />">Consola de administracion</a>
+        </ul>
+        <ul class="left">
+            |
+        </ul>
+        <ul class="left">
             <a class="flow-text m_title" href="<g:createLink controller="${controllerName}" action="index" />"><g:layoutTitle/></a>
         </ul>
         <ul class="right">
