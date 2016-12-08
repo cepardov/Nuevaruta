@@ -61,28 +61,28 @@
                 <g:form class="col s12" resource="${this.sucursal}" method="PUT">
                     <div class="row">
                         <div class="input-field col s12 m1">
-                            <f:input class="tooltipped" length="8" maxlength="8" property="rut" id="rut" bean="sucursal" data-position="bottom" data-delay="50" data-tooltip="Ej: AA-BB-88"/>
                             <label for="rut">Rut</label>
+                            <f:input class="tooltipped" length="12" maxlength="13" property="rut" id="rut" bean="sucursal" data-position="bottom" data-delay="50" data-tooltip="Ej: 12.345.678-k"/>
                         </div>
-                        <div class="input-field col s12 m2">
-                            <label for="nombre">Nombre</label>
+                        <div class="input-field col s12 m3">
+                            <label for="nombre">Nombre Sucursal</label>
                             <f:input property="nombre" id="nombre" bean="sucursal"/>
                         </div>
                         <div class="input-field col s12 m2">
                             <label for="region">Region</label>
                             <f:input property="region" id="region" bean="sucursal"/>
                         </div>
-                        <div class="input-field col s12 m1">
+                        <div class="input-field col s12 m2">
                             <label for="ciudad">Ciudad</label>
                             <f:input type="text" property="ciudad" id="ciudad" bean="sucursal"/>
                         </div>
-                        <div class="input-field col s12 m2">
-                            <label for="fono">N° fono</label>
+                        <div class="input-field col s12 m1">
+                            <label for="fono">N° Telefono</label>
                             <f:input property="fono" id="fono" bean="sucursal"/>
                         </div>
-                        <div class="input-field col s12 m4">
-                            <label for="correo">Correo</label>
-                            <f:input class="materialize-textarea" length="99" maxlength="100" property="correo" id="correo" bean="sucursal"/>
+                        <div class="input-field inline col s12 m3">
+                            <f:input class="validate" type="email" property="correo" id="correo" bean="sucursal"/>
+                            <label for="correo" data-error="El email debe estar en formato usuario@dominio.com" data-success="">Correo</label>
                         </div>
                     </div>
                     <div class="row">
@@ -91,16 +91,16 @@
                                 <label for="estado">Estado</label>
                                 <f:input type="text" property="estado" id="estado" bean="sucursal"/>
                             </div>
-                            <div class="input-field col s12 m2">
+                            <div class="input-field col s12 m5">
                                 <label for="direccion">Dirección</label>
                                 <f:input type="text" property="direccion" id="direccion" bean="sucursal"/>
                             </div>
                             <div class="input-field col s12 m2">
-                                <label for="usuario">Usuario</label>
-                                <f:input type="text" property="usuario" id="usuario" bean="sucursal"/>
+                                <f:input type="" property="usuario" id="usuario" bean="sucursal"/>
                             </div>
                         </div>
                     </div>
+
                     <!-- Menu Modal Edit -->
                     <div class="fixed-action-btn">
                         <button name="create" class="save waves-effect waves-light btn-floating btn-large teal tooltipped" value="${message(code: 'default.button.create.label', default: 'Create')}" type="submit" data-position="left" data-delay="50" data-tooltip="Guardar ${controllerName}"><i class="material-icons right">send</i></button>
@@ -122,27 +122,27 @@
                     <div class="row">
                         <div class="input-field col s12 m1">
                             <label for="rut">Rut</label>
-                            <f:input class="tooltipped" length="8" maxlength="8" property="rut" id="rut" bean="sucursal" data-position="bottom" data-delay="50" data-tooltip="Ej: AA-BB-88"/>
+                            <f:input class="tooltipped" length="12" maxlength="13" property="rut" id="rut" bean="sucursal" data-position="bottom" data-delay="50" data-tooltip="Ej: 12.345.678-k"/>
                         </div>
-                        <div class="input-field col s12 m2">
-                            <label for="nombre">Nombre</label>
+                        <div class="input-field col s12 m3">
+                            <label for="nombre">Nombre Sucursal</label>
                             <f:input property="nombre" id="nombre" bean="sucursal"/>
                         </div>
                         <div class="input-field col s12 m2">
                             <label for="region">Region</label>
                             <f:input property="region" id="region" bean="sucursal"/>
                         </div>
-                        <div class="input-field col s12 m1">
+                        <div class="input-field col s12 m2">
                             <label for="ciudad">Ciudad</label>
                             <f:input type="text" property="ciudad" id="ciudad" bean="sucursal"/>
                         </div>
-                        <div class="input-field col s12 m2">
-                            <label for="fono">N° fono</label>
+                        <div class="input-field col s12 m1">
+                            <label for="fono">N° Telefono</label>
                             <f:input property="fono" id="fono" bean="sucursal"/>
                         </div>
-                        <div class="input-field col s12 m4">
-                            <label for="correo">Correo</label>
-                            <f:input class="materialize-textarea" length="99" maxlength="100" property="correo" id="correo" bean="sucursal"/>
+                        <div class="input-field inline col s12 m3">
+                            <f:input class="validate" type="email" property="correo" id="correo" bean="sucursal"/>
+                            <label for="correo" data-error="El email debe estar en formato usuario@dominio.com" data-success="">Correo</label>
                         </div>
                     </div>
                     <div class="row">
@@ -151,13 +151,12 @@
                                 <label for="estado">Estado</label>
                                 <f:input type="text" property="estado" id="estado" bean="sucursal"/>
                             </div>
-                            <div class="input-field col s12 m2">
+                            <div class="input-field col s12 m5">
                                 <label for="direccion">Dirección</label>
                                 <f:input type="text" property="direccion" id="direccion" bean="sucursal"/>
                             </div>
                             <div class="input-field col s12 m2">
-                                <label for="usuario">Usuario</label>
-                                <f:input type="text" property="usuario" id="usuario" bean="sucursal"/>
+                                <f:input type="" property="usuario" id="usuario" bean="sucursal"/>
                             </div>
                         </div>
                     </div>
