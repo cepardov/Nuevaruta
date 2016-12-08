@@ -12,30 +12,30 @@
             <table class="responsive-table bordered highlight centered">
                 <thead>
                 <tr>
-                    <th data-field="id">Rut</th>
-                    <th data-field="name">Nombre</th>
-                    <th data-field="price">Región</th>
-                    <th data-field="id">Ciudad</th>
-                    <th data-field="name">Fono</th>
-                    <th data-field="price">Correo</th>
-                    <th data-field="price">Estado</th>
-                    <th data-field="price">Gerente</th>
+                    <th>Rut</th>
+                    <th>Nombre</th>
+                    <th>Región</th>
+                    <th>Ciudad</th>
+                    <th>Fono</th>
+                    <th>Correo</th>
+                    <th>Estado</th>
+                    <th>Gerente</th>
                 </tr>
                 </thead>
                 <tbody>
-                <g:each var="s" in="${sucursalList}">
+                <g:each var="v" in="${sucursalList}">
                     <tr>
-                        <td>${s.rut}</td>
-                        <td>${s.nombre}</td>
-                        <td>${s.region}</td>
-                        <td>${s.ciudad}</td>
-                        <td>${s.fono}</td>
-                        <td>${s.correo}</td>
-                        <td>${s.estado}</td>
-                        <td>${s.usuario.nombres} ${s.usuario.paterno} ${s.usuario.paterno}</td>
+                        <td>${v.rut}</td>
+                        <td>${v.nombre}</td>
+                        <td>${v.region}</td>
+                        <td>${v.ciudad}</td>
+                        <td>${v.fono}</td>
+                        <td>${v.correo}</td>
+                        <td>${v.estado}</td>
+                        <td>${v.usuario.nombres} ${v.usuario.paterno} ${v.usuario.paterno}</td>
                         <td>
-                            <g:link class="btn-floating waves-effect waves-light yellow darken-2 tooltipped" id="${s.id}" data-position="left" data-delay="50" data-tooltip="Editar ${controllerName}"><i class="material-icons">edit</i></g:link>
-                            <g:link class="btn-floating waves-effect waves-light red tooltipped" action="eliminar" id="${s.id}" data-position="left" data-delay="50" data-tooltip="Eliminar ${controllerName}"><i class="material-icons">delete</i></g:link>
+                            <g:link class="btn-floating waves-effect waves-light yellow darken-2 tooltipped" id="${v.id}" data-position="left" data-delay="50" data-tooltip="Editar ${controllerName}"><i class="material-icons">edit</i></g:link>
+                            <g:link class="btn-floating waves-effect waves-light red tooltipped" action="eliminar" id="${v.id}" data-position="left" data-delay="50" data-tooltip="Eliminar ${controllerName}"><i class="material-icons">delete</i></g:link>
                         </td>
                     </tr>
                 </g:each>
@@ -43,7 +43,7 @@
             </table>
         </div>
         <div class="pagination">
-            <g:paginate total="${vehiculoCount ?: 0}" />
+            <g:paginate total="${sucursalCount ?: 0}" />
         </div>
     </div>
 
@@ -57,7 +57,7 @@
         <div class="modal-content">
             <h5>Editar ${controllerName}</h5>
             <div class="row">
-            <!---rut, nombre, region, fono, ciudad, valor, estado, correo, valorHoraExtra--->
+            <!---patente, marca, modelo, chasis, año, valor, estado, descripcion, valorHoraExtra--->
                 <g:form class="col s12" resource="${this.sucursal}" method="PUT">
                     <div class="row">
                         <div class="input-field col s12 m1">
@@ -117,7 +117,7 @@
         <div class="modal-content">
             <h5>Crear ${controllerName}</h5>
             <div class="row">
-            <!---rut, nombre, region, fono, ciudad, valor, estado, correo, valorHoraExtra--->
+            <!---patente, marca, modelo, chasis, año, valor, estado, descripcion, valorHoraExtra--->
                 <g:form action="save">
                     <div class="row">
                         <div class="input-field col s12 m1">

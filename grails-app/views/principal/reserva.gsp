@@ -4,6 +4,36 @@
         <meta name="layout" content="main"/>
     </head>
     <body>
+    <div class="">
+        <div class="col s12 row">
+            <ul class="tabs hide">
+                <li class="tab col s3"><a class="" href="#test1">Datos de Sucursal</a></li>
+                <!--
+                <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
+                <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+                <li class="tab col s3"><a href="#test4">Test 4</a></li>
+                -->
+            </ul>
+        </div>
+        <div id="test1" class="col s12">
+            <div class="progress">
+                <div class="determinate" style="width: 10%"></div>
+            </div>
+            <div class="tab-header-area">
+                <h5>Datos de sucursal</h5>
+            </div>
+        </div>
+        <!--
+        <div id="test2" class="col s12">
+            <div class="progress">
+                <div class="determinate" style="width: 30%"></div>
+            </div>
+        </div>
+        <div id="test3" class="col s12">Test 3</div>
+        <div id="test4" class="col s12">Test 4</div>
+        -->
+    </div>
+    <!--
         <ul class="collapsible" data-collapsible="accordion">
             <li>
                 <div class="collapsible-header"><i class="material-icons">whatshot</i>Datos sucursal</div>
@@ -129,5 +159,6 @@
                 <div class="collapsible-body"><p>Aqui colocamos PAYPAL</p></div>
             </li>
         </ul>
+        -->
     </body>
 </html>

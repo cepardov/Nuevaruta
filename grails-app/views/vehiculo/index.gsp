@@ -13,13 +13,13 @@
                 <thead>
                 <tr>
                     <th></th>
-                    <th data-field="id">Rut</th>
-                    <th data-field="name"></th>
-                    <th data-field="price">Modelo</th>
-                    <th data-field="id">Año</th>
-                    <th data-field="name">Sucursal</th>
-                    <th data-field="price">Tipo de vehiculo</th>
-                    <th data-field="price">Valor Día</th>
+                    <th>Patente</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Año</th>
+                    <th>Sucursal</th>
+                    <th>Tipo de vehiculo</th>
+                    <th>Valor Día</th>
                 </tr>
                 </thead>
                 <tbody>

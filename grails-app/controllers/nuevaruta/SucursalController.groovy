@@ -9,24 +9,21 @@ class SucursalController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max,Sucursal sucursal) {
-        def sucursales = Sucursal.list(params);
+        def sucursals = Sucursal.list(params);
         params.max = Math.min(max ?: 10, 100)
         if(params.id!=null){
-            respond sucursal, model:[vehiculoCount: Sucursal.count(), sucursalList:sucursales]
+            respond sucursal, model:[sucursalCount: Sucursal.count(), sucursalList:sucursals]
         }else{
-            respond new Sucursal(params), model:[vehiculoCount: Sucursal.count(), sucursalList:sucursales]
+            respond new Sucursal(params), model:[sucursalCount: Sucursal.count(), sucursalList:sucursals]
         }
 
     }
 
-    def show() {
+    def show(Sucursal sucursal) {
         redirect(controller:"sucursal", action: "index")
+        flash.message = message(code: 'default.created.message', args: [message(code: 'sucursal.label', default: 'Sucursal'), sucursal.rut, sucursal.nombre, sucursal.ciudad])
     }
-    def eliminar(){
-        def sucursal = Sucursal.get(params.id)
-        sucursal.delete(flush:true)
-        redirect (controller: "sucursal", action: "index")
-    }
+
     def create() {
         respond new Sucursal(params)
     }
@@ -44,7 +41,6 @@ class SucursalController {
             respond sucursal.errors, view:'create'
             return
         }
-
         sucursal.save flush:true
 
         request.withFormat {
@@ -58,6 +54,12 @@ class SucursalController {
 
     def edit(Sucursal sucursal) {
         respond sucursal
+    }
+    def eliminar(){
+        def sucursal = Sucursal.get(params.id)
+        sucursal.delete(flush:true)
+        redirect (controller: "sucursal", action: "index")
+        flash.message = message(code: 'default.deleted.message', args: [message(code: 'sucursal.label', default: 'Sucursal'), sucursal.id, sucursal.marca, sucursal.modelo])
     }
 
     @Transactional

@@ -53,7 +53,7 @@
                 <g:form class="col s12" resource="${this.usuario}" method="PUT">
                     <div class="row">
                         <div class="input-field col s12 m2">
-                            <f:input class="tooltipped" length="12" maxlength="13" property="rut" id="rut" bean="usuario" data-position="bottom" data-delay="50" data-tooltip="Ej: AA-BB-88"/>
+                            <f:input class="tooltipped" length="12" maxlength="13" property="rut" id="rut" bean="usuario" data-position="bottom" data-delay="50" data-tooltip="Ej: 12345678-k"/>
                             <label for="rut">RUT</label>
                         </div>
                         <div class="input-field col s12 m2">
@@ -78,7 +78,7 @@
                         </div>
                         <div class="input-field col s12 m2 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Indique el privilegio del usaurio">
                             <select name="tipo">
-                                <option value="cavernicol" disabled>Elija opcion</option>
+                                <option value="" disabled>Elija opcion</option>
                                 <option value="administrador">Administrador</option>
                                 <option value="cavernicola">Cavernario</option>
                             </select>
@@ -103,8 +103,8 @@
             <!---rut, nombres, paterno, telefono, materno, valor, estado, correo, valorHoraExtra--->
                 <g:form action="save">
                     <div class="row">
-                        <div class="input-field col s12 m1">
-                            <f:input class="tooltipped" length="8" maxlength="8" property="rut" id="rut" bean="usuario" data-position="bottom" data-delay="50" data-tooltip="Ej: AA-BB-88"/>
+                        <div class="input-field col s12 m2">
+                            <f:input class="tooltipped" length="12" maxlength="13" property="rut" id="rut" bean="usuario" data-position="bottom" data-delay="50" data-tooltip="Ej: 12345678-k"/>
                             <label for="rut">RUT</label>
                         </div>
                         <div class="input-field col s12 m2">
@@ -115,17 +115,24 @@
                             <label for="paterno">Paterno</label>
                             <f:input property="paterno" id="paterno" bean="usuario"/>
                         </div>
-                        <div class="input-field col s12 m1">
+                        <div class="input-field col s12 m2">
                             <label for="materno">Materno</label>
-                            <f:input type="number" property="materno" id="materno" bean="usuario"/>
+                            <f:input property="materno" id="materno" bean="usuario"/>
                         </div>
                         <div class="input-field col s12 m2">
                             <label for="telefono">Telefono</label>
                             <f:input property="telefono" id="telefono" bean="usuario"/>
                         </div>
-                        <div class="input-field col s12 m4">
-                            <label for="correo">Correo</label>
-                            <f:input class="materialize-textarea" length="99" maxlength="100" property="correo" id="correo" bean="usuario"/>
+                        <div class="input-field inline col s12 m4">
+                            <f:input class="validate" type="email" property="correo" id="correo" bean="usuario"/>
+                            <label for="correo" data-error="El email debe estar en formato usuario@dominio.com" data-success="">Correo</label>
+                        </div>
+                        <div class="input-field col s12 m2 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Indique el privilegio del usaurio">
+                            <select name="tipo">
+                                <option value="" disabled>Elija opcion</option>
+                                <option value="administrador">Administrador</option>
+                                <option value="cavernicola">Cavernario</option>
+                            </select>
                         </div>
                     </div>
 
