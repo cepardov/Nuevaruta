@@ -80,14 +80,20 @@
         <ul class="left">
             <a class="flow-text m_title" href="<g:createLink controller="dashboard" action="index" />">Consola de administracion</a>
         </ul>
-        <ul class="left">
-            |
-        </ul>
+        <ul class="left"> | </ul>
         <ul class="left">
             <a class="flow-text m_title" href="<g:createLink controller="${controllerName}" action="index" />"><g:layoutTitle/></a>
         </ul>
+        <ul class="left">&nbsp;</ul>
         <ul class="left">
-            ${}0 ${controllerName} (s)
+            <g:if test="${controllerName == 'dashboard'}">${grailsApplication.controllerClasses.count {this}} elementos</g:if>
+            <g:if test="${controllerName == 'vehiculo'}">${vehiculoCount ?: 0} elementos</g:if>
+            <g:if test="${controllerName == 'usuario'}">${usuarioCount ?: 0} elementos</g:if>
+            <g:if test="${controllerName == 'cliente'}">${clienteCount ?: 0} elementos</g:if>
+            <g:if test="${controllerName == 'contrato'}">${contratoCount ?: 0} elementos</g:if>
+            <g:if test="${controllerName == 'pago'}">${pagoCount ?: 0} elementos</g:if>
+            <g:if test="${controllerName == 'reserva'}">${reservaCount ?: 0} elementos</g:if>
+            <g:if test="${controllerName == 'sucursal'}">${sucursalCount ?: 0} elementos</g:if>
         </ul>
         <ul class="right">
 
