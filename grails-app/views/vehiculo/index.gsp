@@ -8,10 +8,6 @@
 <body>
 <div class="slider col s12 m12">
     <div id="list-vehiculo" class="content scaffold-list" role="main">
-
-        <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
-        </g:if>
         <div class="row">
             <table class="responsive-table bordered highlight centered">
                 <thead>
