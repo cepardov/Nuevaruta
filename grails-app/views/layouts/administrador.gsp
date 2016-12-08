@@ -86,6 +86,9 @@
         <ul class="left">
             <a class="flow-text m_title" href="<g:createLink controller="${controllerName}" action="index" />"><g:layoutTitle/></a>
         </ul>
+        <ul class="left">
+            ${}0 ${controllerName} (s)
+        </ul>
         <ul class="right">
 
         </ul>

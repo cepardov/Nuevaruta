@@ -21,7 +21,7 @@ class VehiculoController {
 
     def show(Vehiculo vehiculo) {
         redirect(controller:"vehiculo", action: "index")
-        flash.message = message(code: 'default.created.message', args: [message(code: 'vehiculo.label', default: 'Vehiculo'), vehiculo.id])
+        flash.message = message(code: 'default.created.message', args: [message(code: 'vehiculo.label', default: 'Vehiculo'), vehiculo.id, vehiculo.marca, vehiculo.modelo])
     }
 
     def create() {
@@ -59,6 +59,7 @@ class VehiculoController {
         def vehiculo = Vehiculo.get(params.id)
         vehiculo.delete(flush:true)
         redirect (controller: "vehiculo", action: "index")
+        flash.message = message(code: 'default.deleted.message', args: [message(code: 'vehiculo.label', default: 'Vehiculo'), vehiculo.id, vehiculo.marca, vehiculo.modelo])
     }
 
     @Transactional

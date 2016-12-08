@@ -21,6 +21,7 @@ class UsuarioController {
 
     def show(Usuario usuario) {
         redirect(controller:"usuario", action: "index")
+        flash.message = message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuario.id, usuario.nombres, usuario.paterno +' '+ usuario.materno])
     }
 
     def create() {
