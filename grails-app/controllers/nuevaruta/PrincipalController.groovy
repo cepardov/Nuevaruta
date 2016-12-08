@@ -64,8 +64,9 @@ class PrincipalController {
             if(cliente){
                 session.clienteLogeado = cliente
                 flash.message = "Sesión iniciada correctamente"
-                println "Parametros : "+params.parametros
-                redirect ()
+                String [] entrada= params.parametros
+                println "Parametros : "+entrada[0]
+                redirect model: entrada
             }else {
                 def c = new Cliente(nombres: params.nombreClienteFacebook, correo: params.correoClienteFacebook, facebookID: params.idClienteFacebook)
                         .save(flush: true)

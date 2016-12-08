@@ -13,8 +13,8 @@
                 <thead>
                 <tr>
                     <th></th>
-                    <th data-field="id">Patente</th>
-                    <th data-field="name">Marca</th>
+                    <th data-field="id">Rut</th>
+                    <th data-field="name"></th>
                     <th data-field="price">Modelo</th>
                     <th data-field="id">Año</th>
                     <th data-field="name">Sucursal</th>

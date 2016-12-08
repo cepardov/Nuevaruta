@@ -8,15 +8,25 @@ class SucursalController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
+    def index(Integer max,Sucursal sucursal) {
+        def sucursales = Sucursal.list(params);
         params.max = Math.min(max ?: 10, 100)
-        respond Sucursal.list(params), model:[sucursalCount: Sucursal.count()]
+        if(params.id!=null){
+            respond sucursal, model:[vehiculoCount: Sucursal.count(), sucursalList:sucursales]
+        }else{
+            respond new Sucursal(params), model:[vehiculoCount: Sucursal.count(), sucursalList:sucursales]
+        }
+
     }
 
-    def show(Sucursal sucursal) {
-        respond sucursal
+    def show() {
+        redirect(controller:"sucursal", action: "index")
     }
-
+    def eliminar(){
+        def sucursal = Sucursal.get(params.id)
+        sucursal.delete(flush:true)
+        redirect (controller: "sucursal", action: "index")
+    }
     def create() {
         respond new Sucursal(params)
     }

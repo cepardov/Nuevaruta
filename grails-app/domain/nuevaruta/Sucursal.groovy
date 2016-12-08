@@ -6,5 +6,6 @@ class Sucursal {
     static hasMany = [contrato:Contrato, vehiculo:Vehiculo]
     static constraints = {
         estado nullable: true, blank: true
+        logo nullable: true, blank:true
     }
 }
