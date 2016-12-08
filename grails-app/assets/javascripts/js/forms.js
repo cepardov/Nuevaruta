@@ -42,3 +42,9 @@ $('.modal').modal({
 		ending_top: '10%', // Ending top style attribute
 	}
 );
+$(document).ready(function(){
+	$('.parallax').parallax();
+});
+$(document).ready(function(){
+	$('.scrollspy').scrollSpy();
+});

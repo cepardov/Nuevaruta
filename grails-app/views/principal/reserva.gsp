@@ -4,61 +4,36 @@
         <meta name="layout" content="main"/>
     </head>
     <body>
-    <div class="">
-        <div class="col s12 row">
-            <ul class="tabs hide">
-                <li class="tab col s3"><a class="" href="#test1">Datos de Sucursal</a></li>
-                <!--
-                <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
-                <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
-                <li class="tab col s3"><a href="#test4">Test 4</a></li>
-                -->
-            </ul>
-        </div>
-        <div id="test1" class="col s12">
-            <div class="progress">
-                <div class="determinate" style="width: 10%"></div>
-            </div>
-            <div class="tab-header-area">
-                <h5>Datos de sucursal</h5>
-            </div>
-        </div>
-        <!--
-        <div id="test2" class="col s12">
-            <div class="progress">
-                <div class="determinate" style="width: 30%"></div>
-            </div>
-        </div>
-        <div id="test3" class="col s12">Test 3</div>
-        <div id="test4" class="col s12">Test 4</div>
-        -->
-    </div>
-    <!--
-        <ul class="collapsible" data-collapsible="accordion">
-            <li>
-                <div class="collapsible-header"><i class="material-icons">whatshot</i>Datos sucursal</div>
-                <div class="collapsible-body">
-                    <div class="row">
-                        <div class="input-field col s3">
-                            <f:input property="rut" bean="sucursal" id="rut" type="text" class="validate"></f:input>
-                            <label for="rut">Rut Sucursal</label>
-                        </div>
-                        <div class="input-field col s3">
-                            <f:input property="nombre" bean="sucursal" id="nombre" type="text" class="validate"></f:input>
-                            <label for="nombre">Nombre</label>
-                        </div>
-                        <div class="input-field col s3">
-                            <f:input property="correo" bean="sucursal" id="correo" type="text" class="validate"></f:input>
-                            <label for="correo">Correo</label>
+    <div class="parallax-container">
+        <div class="parallax"><img src="http://materializecss.com/images/parallax1.jpg"></div>
+        <br>
+        <div class="container">
+            <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header teal white-text"><i class="material-icons">business</i>Datos de sucursal</div>
+                    <div class="collapsible-body blue-grey lighten-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="input-field col s12 m4">
+                                    <f:input property="rut" bean="sucursal" id="rut" type="text" class="validate"></f:input>
+                                    <label for="rut">Rut Sucursal</label>
+                                </div>
+                                <div class="input-field col s12 m4">
+                                    <f:input property="nombre" bean="sucursal" id="nombre" type="text" class="validate"></f:input>
+                                    <label for="nombre">Nombre</label>
+                                </div>
+                                <div class="input-field col s12 m4">
+                                    <f:input property="correo" bean="sucursal" id="correo" type="text" class="validate"></f:input>
+                                    <label for="correo">Correo</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header active"><i class="material-icons">filter_drama</i>Datos Del Cliente</div>
-                <div class="collapsible-body">
-                    <div class="row">
-                        <form class="col s12">
+                </li>
+                <li>
+                    <div class="collapsible-header teal white-text"><i class="material-icons">person</i>Datos del cliente</div>
+                    <div class="collapsible-body blue-grey lighten-5">
+                        <div class="container">
                             <div class="row">
                                 <div class="input-field col s3">
                                     <f:input property="rut" bean="cliente" id="rut" type="text" class="validate"></f:input>
@@ -76,89 +51,91 @@
                                     <f:input property="materno" bean="cliente" id="materno" type="text" class="validate"></f:input>
                                     <label for="materno">Apellido Materno</label>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="input-field col s3">
                                     <f:input property="telefono" bean="cliente" id="telefono" type="text" class="validate"></f:input>
                                     <label for="telefono">Telefono</label>
                                 </div>
                                 <div class="input-field col s3">
                                     <f:input property="correo" bean="cliente" id="correo" type="text" class="validate"></f:input>
-                                    <label for="correo">Nombre</label>
+                                    <label for="correo">Correo</label>
                                 </div>
-                                <div class="input-field col s3">
+                                <div class="input-field col s2">
                                     <f:input property="fechaNacimiento" bean="cliente" id="fechanacimiento" type="text" class="validate"></f:input>
                                     <label for="fechanacimiento">Fecha Nacimiento</label>
                                 </div>
                             </div>
-                        </form>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header teal white-text"><i class="material-icons">directions_car</i>Datos del vehiculo</div>
+                    <div class="collapsible-body blue-grey lighten-5">
+                        <div class="container">
+                            <div class="row">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s3">
+                                            <f:input property="patente" bean="vehiculo" id="patente" type="text" class="validate"></f:input>
+                                            <label for="patente">Patente</label>
+                                        </div>
+                                        <div class="input-field col s3">
+                                            <f:input property="marca" bean="vehiculo" id="marca" type="text" class="validate"></f:input>
+                                            <label for="marca">Marca</label>
+                                        </div>
+                                        <div class="input-field col s3">
+                                            <f:input property="modelo" bean="vehiculo" id="modelo" type="text" class="validate"></f:input>
+                                            <label for="modelo">Modelo</label>
+                                        </div>
+                                        <div class="input-field col s3">
+                                            <f:input property="año" bean="vehiculo" id="año" type="text" class="validate"></f:input>
+                                            <label for="año">Año</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s3">
+                                            <f:input property="valor" bean="vehiculo" id="valor" type="text" class="validate"></f:input>
+                                            <label for="valor">Valor diario</label>
+                                        </div>
+                                        <div class="input-field col s3">
+                                            <f:input property="valorHoraExtra" bean="vehiculo" id="valorHoraExtra" type="text" class="validate"></f:input>
+                                            <label for="valorHoraExtra">Valor Hora Extra</label>
+                                        </div>
+                                        <div class="input-field col s3">
+                                            <f:input property="kilometraje" bean="vehiculo" id="kilometraje" type="text" class="validate"></f:input>
+                                            <label for="kilometraje">Kilometraje Actual</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s3">
+                                            <input type="text" value="${params.fecharetiro}">
+                                            <label for="valor">Fecha retiro</label>
+                                        </div>
+                                        <div class="input-field col s3">
+                                            <input type="text" value="${params.fechadevolucion}">
+                                            <label for="valor">Fecha Devolución</label>
+                                        </div>
+                                        <div class="input-field col s3">
+                                            <input property="kilometraje" bean="vehiculo" id="kilometraje" type="text" class="validate">
+                                            <label for="kilometraje">Total valor reserva</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!--
+            <li>
+                <div class="collapsible-header teal white-text"><i class="material-icons">whatshot</i>Third</div>
+                <div class="collapsible-body blue-grey lighten-5">
+                    <div class="container">
+
                     </div>
                 </div>
             </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">place</i>Datos del Vehiculo</div>
-                <div class="collapsible-body">
-                    <div class="row">
-                        <form class="col s12">
-                            <div class="row">
-                                <div class="input-field col s3">
-                                    <f:input property="patente" bean="vehiculo" id="patente" type="text" class="validate"></f:input>
-                                    <label for="patente">Patente</label>
-                                </div>
-                                <div class="input-field col s3">
-                                    <f:input property="marca" bean="vehiculo" id="marca" type="text" class="validate"></f:input>
-                                    <label for="marca">Marca</label>
-                                </div>
-                                <div class="input-field col s3">
-                                    <f:input property="modelo" bean="vehiculo" id="modelo" type="text" class="validate"></f:input>
-                                    <label for="modelo">Modelo</label>
-                                </div>
-                                <div class="input-field col s3">
-                                    <f:input property="año" bean="vehiculo" id="año" type="text" class="validate"></f:input>
-                                    <label for="año">Año</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s3">
-                                    <f:input property="valor" bean="vehiculo" id="valor" type="text" class="validate"></f:input>
-                                    <label for="valor">Valor diario</label>
-                                </div>
-                                <div class="input-field col s3">
-                                    <f:input property="valorHoraExtra" bean="vehiculo" id="valorHoraExtra" type="text" class="validate"></f:input>
-                                    <label for="valorHoraExtra">Valor Hora Extra</label>
-                                </div>
-                                <div class="input-field col s3">
-                                    <f:input property="kilometraje" bean="vehiculo" id="kilometraje" type="text" class="validate"></f:input>
-                                    <label for="kilometraje">Kilometraje Actual</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s3">
-                                    <input type="text" value="${params.fecharetiro}">
-                                    <label for="valor">Fecha retiro</label>
-                                </div>
-                                <div class="input-field col s3">
-                                    <input type="text" value="${params.fechadevolucion}">
-                                    <label for="valor">Fecha Devolución</label>
-                                </div>
-                                <div class="input-field col s3">
-                                    <input property="kilometraje" bean="vehiculo" id="kilometraje" type="text" class="validate">
-                                    <label for="kilometraje">Total valor reserva</label>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">whatshot</i>Datos del contrato</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">whatshot</i>Pago</div>
-                <div class="collapsible-body"><p>Aqui colocamos PAYPAL</p></div>
-            </li>
-        </ul>
-        -->
+            -->
+            </ul>
+        </div>
+    </div>
     </body>
 </html>

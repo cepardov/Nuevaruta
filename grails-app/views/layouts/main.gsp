@@ -17,25 +17,27 @@
 </head>
 <body>
     <head>
-        <nav class="z-depth-3">
-            <div class="nav-wrapper blue-grey lighten-1">
-                <a id="logo-container" href="http://localhost:8080" class="brand-logo">
-                    <asset:image src="img/logo.png" alt="logo" class="img-responsive" width="18%" height="18%" style="padding:1%"/>
-                </a>
-                <ul class="right hide-on-med-and-down">
-                    <g:if test="${session.clienteLogeado!=null}">
-                        <li><a data-position="right" href="#modal1" class="sesion">${session.clienteLogeado.nombres} ${session.clienteLogeado.paterno} ${session.clienteLogeado.materno}</a></li>
-                        <li><a data-position="right" href="" class="sesion"><g:link controller="principal" action="logout">Salir</g:link></a></li>
-                    </g:if>
-                    <g:else>
-                        <li><a data-position="right" onclick="ingresar();">Ingresar Con Facebook</a>
-                        <li><a data-position="right" href="#modal2" class="sesion">Registrate</a></li>
-                        <li><a data-position="right" href="#modal1" class="sesion" id="inciarsesion">Iniciar Sesión</a></li>
-                    </g:else>
-                </ul>
-                <a href="" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-            </div>
-        </nav><!-- Aqui termina la continuacion del nav desde layout/main.gsp -->
+        <div class="navbar-fixed">
+            <nav class="z-depth-3">
+                <div class="nav-wrapper blue-grey lighten-1">
+                    <a id="logo-container" href="http://localhost:8080" class="brand-logo">
+                        <asset:image src="img/logo.png" alt="logo" class="img-responsive" width="18%" height="18%" style="padding:1%"/>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <g:if test="${session.clienteLogeado!=null}">
+                            <li><a data-position="right" href="#modal1" class="sesion">${session.clienteLogeado.nombres} ${session.clienteLogeado.paterno} ${session.clienteLogeado.materno}</a></li>
+                            <li><a data-position="right" href="" class="sesion"><g:link controller="principal" action="logout">Salir</g:link></a></li>
+                        </g:if>
+                        <g:else>
+                            <li><a data-position="right" onclick="ingresar();">Ingresar Con Facebook</a>
+                            <li><a data-position="right" href="#modal2" class="sesion">Registrate</a></li>
+                            <li><a data-position="right" href="#modal1" class="sesion" id="inciarsesion">Iniciar Sesión</a></li>
+                        </g:else>
+                    </ul>
+                    <a href="" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                </div>
+            </nav>
+        </div>
     </head>
 
     <g:layoutBody/>
