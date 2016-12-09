@@ -6,7 +6,7 @@
 
 <body>
 
-<div class="col s12 m9">
+<div class="col s12">
     <div class="row">
         <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
             <div class="col s3 m2 center">

@@ -59,13 +59,13 @@
             <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
                 <li><g:link controller="${c.logicalPropertyName}"><i class="material-icons">
                     <g:if test="${c.name=="Usuario"}">person</g:if>
-                    <g:if test="${c.name=="Contrato"}">settings</g:if>
-                    <g:if test="${c.name=="Dashboard"}">person</g:if>
-                    <g:if test="${c.name=="Pago"}">person</g:if>
-                    <g:if test="${c.name=="Principal"}">person</g:if>
-                    <g:if test="${c.name=="Reserva"}">person</g:if>
-                    <g:if test="${c.name=="Sucursal"}">person</g:if>
-                    <g:if test="${c.name=="Vehiculo"}">person</g:if>
+                    <g:if test="${c.name=="Contrato"}">insert_drive_file</g:if>
+                    <g:if test="${c.name=="Dashboard"}">dashboard</g:if>
+                    <g:if test="${c.name=="Pago"}">payment</g:if>
+                    <g:if test="${c.name=="Principal"}">home</g:if>
+                    <g:if test="${c.name=="Reserva"}">directions_car</g:if>
+                    <g:if test="${c.name=="Sucursal"}">domain</g:if>
+                    <g:if test="${c.name=="Vehiculo"}">airport_shuttle</g:if>
                     <g:if test="${c.name=="Cliente"}">people</g:if>
                 </i>${c.name}</g:link></li>
             </g:each>

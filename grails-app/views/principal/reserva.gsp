@@ -35,7 +35,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="collapsible-header teal white-text"><i class="material-icons">person</i>Datos del cliente</div>
+                    <div class="collapsible-header teal white-text active"><i class="material-icons">person</i>Datos del cliente</div>
                     <div class="collapsible-body blue-grey lighten-5">
                         <div class="container">
                             <div class="row">
