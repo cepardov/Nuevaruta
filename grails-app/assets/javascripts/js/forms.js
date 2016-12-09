@@ -6,14 +6,17 @@ jQuery(document).ready(function ($) {
 		monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dec'],
 		weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado'],
 		weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sáb'],
-		format: 'yyyy-mm-dd '+currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds() + "." + currentdate.getMilliseconds(),
+		format: 'yyyy-mm-dd',//+currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds() + "." + currentdate.getMilliseconds(),
 		today: 'Ahora',
 		clear: 'Borrar',
 		close: 'Cerrar',
+		closeOnSelect: false,
 		selectMonths: true, // Creates a dropdown to control month
-		selectYears: 15 // Creates a dropdown of 15 years to control year
+		selectYears: 15, // Creates a dropdown of 15 years to control year
+			onSet: function () {
+				this.close();
+			}
 		});
-
 
 		$('select').material_select();
 	});
