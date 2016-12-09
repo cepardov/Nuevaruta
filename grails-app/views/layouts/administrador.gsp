@@ -50,7 +50,7 @@
                         <img src="http://materializecss.com/images/office.jpg">
                     </div>
                     <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
-                    <a href="#!name"><span class="white-text name">${session.clienteLogeado.nombres} ${session.clienteLogeado.paterno} ${session.clienteLogeado.materno}</span></a>
+                    <a href="#!name"><span class="white-text name">Nombre Apellido</span></a>
                     <a href="#!email"><span class="white-text email">usaurio@nuevaruta.cl</span></a>
                 </div>
             </li>
