@@ -25,7 +25,7 @@
                     </a>
                     <ul class="right hide-on-med-and-down">
                         <g:if test="${session.clienteLogeado!=null}">
-                            <li><a data-position="right" href="#modal1" class="sesion">Nombre Apellido</a></li>
+                            <li><a data-position="right" href="#modal1" class="sesion">${session.clienteLogeado.nombres} ${session.clienteLogeado.paterno} ${session.clienteLogeado.materno}</a></li>
                             <li><a data-position="right" href="" class="sesion"><g:link controller="principal" action="logout">Salir</g:link></a></li>
                         </g:if>
                         <g:else>
