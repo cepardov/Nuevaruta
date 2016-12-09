@@ -8,16 +8,20 @@ class ClienteController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def prueba(){
-        def icon="person"
-    }
-    def index(Integer max) {
+    def index(Integer max,Cliente cliente) {
+        def clientes = Cliente.list(params);
         params.max = Math.min(max ?: 10, 100)
-        respond Cliente.list(params), model:[clienteCount: Cliente.count()]
+        if(params.id!=null){
+            respond cliente, model:[clienteCount: Cliente.count(), clienteList:clientes]
+        }else{
+            respond new Cliente(params), model:[clienteCount: Cliente.count(), clienteList:clientes]
+        }
+
     }
 
     def show(Cliente cliente) {
-        respond cliente
+        redirect(controller:"cliente", action: "index")
+        flash.message = message(code: 'default.created.message', args: [message(code: 'cliente.label', default: 'Cliente'), cliente.rut, cliente.nombres, cliente.paterno+" "+cliente.materno])
     }
 
     def create() {
@@ -37,7 +41,6 @@ class ClienteController {
             respond cliente.errors, view:'create'
             return
         }
-
         cliente.save flush:true
 
         request.withFormat {
@@ -51,6 +54,12 @@ class ClienteController {
 
     def edit(Cliente cliente) {
         respond cliente
+    }
+    def eliminar(){
+        def cliente = Cliente.get(params.id)
+        cliente.delete(flush:true)
+        redirect (controller: "cliente", action: "index")
+        flash.message = message(code: 'default.deleted.message', args: [message(code: 'cliente.label', default: 'Cliente'), cliente.id, cliente.marca, cliente.modelo])
     }
 
     @Transactional
