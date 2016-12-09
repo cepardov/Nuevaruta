@@ -128,6 +128,33 @@
                         </div>
                     </div>
                 </li>
+                <li>
+                    <div class="collapsible-header teal white-text"><i class="material-icons">import_contacts</i>Contrato</div>
+                    <div class="collapsible-body blue-grey lighten-5">
+                        <div class="container">
+                            <br>
+                            <h5>Contrato de Arriendo - Cliente</h5>
+                            <p>En ${ciudad}(Puerto Montt) a dia de mes de 2016.</p>
+                            <p class="text-justify">
+                                Entre Nueva Ruta rent a car rut 00.000.000-k, con domicilio en
+                                <strong><f:display property="direccion" bean="sucursal" id="direccion"/></strong>
+                                en adelante arrendador y Sr(a).
+                                <strong><f:display property="nombres" bean="cliente" id="nombres"/></strong>
+                                Cedula de identidad numero
+                                <strong><f:display property="rut" bean="cliente" id="rut"/></strong>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header teal white-text"><i class="material-icons">payment</i>Pago</div>
+                    <div class="collapsible-body blue-grey lighten-5">
+                        <div class="container">
+                            <br>
+                            <h1>Paga la wea qlo</h1>
+                        </div>
+                    </div>
+                </li>
                 <!--
             <li>
                 <div class="collapsible-header teal white-text"><i class="material-icons">whatshot</i>Third</div>
