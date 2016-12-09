@@ -15,16 +15,20 @@
                         <div class="container">
                             <div class="row">
                                 <div class="input-field col s12 m4">
-                                    <f:input property="rut" bean="sucursal" id="rut" type="text" class="validate"></f:input>
+                                    <f:input property="rut" bean="sucursal" id="rut" type="text" class="validate" disabled="true"></f:input>
                                     <label for="rut">Rut Sucursal</label>
                                 </div>
                                 <div class="input-field col s12 m4">
-                                    <f:input property="nombre" bean="sucursal" id="nombre" type="text" class="validate"></f:input>
+                                    <f:input property="nombre" bean="sucursal" id="nombre" type="text" class="validate" disabled="true"></f:input>
                                     <label for="nombre">Nombre</label>
                                 </div>
                                 <div class="input-field col s12 m4">
-                                    <f:input property="correo" bean="sucursal" id="correo" type="text" class="validate"></f:input>
+                                    <f:input property="correo" bean="sucursal" id="correo" type="text" class="validate" disabled="true"></f:input>
                                     <label for="correo">Correo</label>
+                                </div>
+                                <div class="input-field col s12 m7">
+                                    <f:input property="direccion" bean="sucursal" id="direccion" type="text" class="validate" disabled="true"></f:input>
+                                    <label for="direccion">Direccion de entrega</label>
                                 </div>
                             </div>
                         </div>
