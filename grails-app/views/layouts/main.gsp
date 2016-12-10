@@ -68,11 +68,11 @@
             </g:form>
         </div>
 <!-----Modal de registro de usuario---->
-        <div id="modal2" class="modal">
+        <div id="modal2" class="modal" >
             <div class="modal-content">
                 <h4>Crear Cuenta</h4>
                 <div class="row">
-                    <g:form controller="principal" action="registro" class="col s12">
+                    <g:form controller="principal" action="registro" class="col s12" name="form" id="iform">
                         <div class="row">
                             <div class="input-field col s6">
                                 <input id="first_name" type="text" name="nombresCliente" class="validate">
@@ -95,11 +95,11 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="password" type="password" name="contrasenaCliente" class="validate">
+                                <input id="password" type="password" name="contrasenaCliente" class="validate" required="contraseña">
                                 <label for="password">Contraseña</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="password2" type="password" name="contrasenaCliente2" class="validate">
+                                <input id="password2" type="password" name="contrasenaCliente2" class="validate" required="repita la contraseña">
                                 <label for="password2">Repita la Contraseña</label>
                             </div>
                         </div>
@@ -202,20 +202,22 @@
     }
     <!--funcion para validar las contraseñas-->
     function comprobarClave(){
-        var p1=document.getElementById("password").value;
-        var p2=document.getElementById("password2").value;
+        var p1=document.getElementById('password').value;
+        var p2=document.getElementById('password2').value;
         <!--comprobaremos que el contenido de las variables es el mismo-->
         if (p1 != p2) {
             alert("Las passwords deben de coincidir");
+            document.form.password.focus();
             return false;
-        } else {
-            alert("Todo esta correcto");
-            return true;
         }
         <!--comprobaremos que el tamaño es mayor de 0. El tamaño de una cadena lo conseguimos con el atributo length-->
         if (p1.length == 0 || p2.length == 0) {
             alert("Los campos de la password no pueden quedar vacios");
             return false;
+        }
+        else {
+            alert("Todo esta correcto");
+            return true;
         }
     }
 </script>
