@@ -2,12 +2,13 @@ package nuevaruta
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import groovy.sql.*
 
 @Transactional(readOnly = true)
 class VehiculoController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
+    def dataSource
     def index(Integer max,Vehiculo vehiculo) {
         def vehiculos = Vehiculo.list(params);
         params.max = Math.min(max ?: 10, 100)
@@ -115,5 +116,20 @@ class VehiculoController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+    def upload() {
+        def f = request.getFile('archivo')
+        if (f.empty) {
+            flash.message = "Debes seleccionar un archivo para cargarlo a un Egreso."
+            redirect(controller: "vehiculo", action: "index")
+            return
+        }
+        String filePath = grailsApplication.config.getProperty('rutaArchivos.carpeta.absoluta')+params.idVehiculo + f?.filename
+        f.transferTo(new File(filePath))
+        Sql sql = new Sql(dataSource)
+        sql.execute("update vehiculo as v set v.archivo='"+params.idVehiculo + f.filename+"' where id="+params.idVehiculo)
+        //Vehiculo archivo = new Vehiculo(nombre: f?.filename, ruta: filePath, entidad: 'egreso', entidadId: params.idEgreso, creadoPor:session.usuarioLogueado.rut).save(flush:true, failOnError: true)
+        flash.message = "Archivo Cargado Correctamente en Egreso $params.idEgreso"
+        redirect(controller: "vehiculo", action: "index")
     }
 }

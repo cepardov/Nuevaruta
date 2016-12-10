@@ -6,6 +6,7 @@
     <title><g:message code="default.list.label" args="[entityName]" /></title>
 </head>
 <body>
+<a></a>
 <div class="slider col s12 m12">
     <div id="list-vehiculo" class="content scaffold-list" role="main">
         <div class="row">
@@ -26,7 +27,7 @@
                 <g:each var="v" in="${vehiculoList}">
                     <tr>
                         <td>
-                            <img src="http://cdn01.ib.infobae.com/adjuntos/162/imagenes/014/478/0014478089.jpg" width="50" height="50" alt="" class="circle"> <!-- notice the "circle" class -->
+                            <asset:image src="vehiculos/${v.archivo}" width="50" height="50" alt="" class="circle"/> <!-- notice the "circle" class -->
                         </td>
                         <td>${v.patente}</td>
                         <td>${v.marca}</td>
@@ -38,6 +39,7 @@
                         <td>
                             <g:link class="btn-floating waves-effect waves-light yellow darken-2 tooltipped" id="${v.id}" data-position="left" data-delay="50" data-tooltip="Editar ${controllerName}"><i class="material-icons">edit</i></g:link>
                             <g:link class="btn-floating waves-effect waves-light red tooltipped" action="eliminar" id="${v.id}" data-position="left" data-delay="50" data-tooltip="Eliminar ${controllerName}"><i class="material-icons">delete</i></g:link>
+                            <g:link class="btn-floating waves-effect waves-light red tooltipped" action="index" params="[vehiculo:v.id]" data-position="left" data-delay="50" data-tooltip="Cambiar foto de ${controllerName}"><i class="material-icons">photo</i></g:link>
                         </td>
                     </tr>
                 </g:each>
@@ -110,17 +112,6 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="file-field input-field col s12 m6">
-                            <div class="btn">
-                                <span>Archivo</span>
-                                <input type="file" accept="image/jpeg,image/jpg,image/png">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" placeholder="Suba imagen de vehiculo" type="text">
-                            </div>
-                        </div>
-                    </div>
                     <!-- Menu Modal Edit -->
                     <div class="fixed-action-btn">
                         <button name="create" class="save waves-effect waves-light btn-floating btn-large teal tooltipped" value="${message(code: 'default.button.create.label', default: 'Create')}" type="submit" data-position="left" data-delay="50" data-tooltip="Guardar ${controllerName}"><i class="material-icons right">send</i></button>
@@ -188,18 +179,6 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="file-field input-field col s12 m6">
-                            <div class="btn">
-                                <span>Archivo</span>
-                                <input type="file" accept="image/jpeg,image/jpg,image/png">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" placeholder="Suba imagen de vehiculo" type="text">
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Menu Modal Create-->
                     <div class="fixed-action-btn">
                         <button name="create" class="save waves-effect waves-light btn-floating btn-large teal tooltipped" value="${message(code: 'default.button.create.label', default: 'Create')}" type="submit" data-position="left" data-delay="50" data-tooltip="Guardar ${controllerName}"><i class="material-icons right">send</i></button>
@@ -212,5 +191,22 @@
     <g:if test="${params.id}">
         <a type="hidden" href="#modalEdicion" data-position="left" data-delay="50" id="clickButton"></a>
     </g:if>
+    <g:if test="${params.vehiculo}">
+        <a data-position="right" href="#modal1" id="clickButton"class="sesion"></a>
+    </g:if>
+<!-- Modal Subir archivo -->
+    <div id="modal1" class="modal">
+        <g:uploadForm controller="vehiculo" action="upload">
+            <h3>Cargar imagen a vehiculo</h3>
+            <fieldset class="form">
+                <input type="file" name="archivo" />
+            </fieldset>
+            <input type="hidden" name="idVehiculo" value="${params.vehiculo}">
+            <fieldset class="buttons">
+                <g:link class="volver" action="index">Volver</g:link>
+                <input class="save" type="submit" value="Cargar" />
+            </fieldset>
+        </g:uploadForm>
+    </div>
 </body>
 </html>

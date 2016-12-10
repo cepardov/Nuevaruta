@@ -41,7 +41,12 @@
                                     <label class="white-text">Fecha de devolucion</label>
                                 </div>
                                 <div class="input-field col s12 center-align">
-                                    <g:submitButton  class="waves-effect waves-light btn tooltipped" data-position="right" name="buscar" value="busqueda"></g:submitButton>
+                                    <g:if test="${session.clienteLogeado}">
+                                        <g:submitButton  class="waves-effect waves-light btn tooltipped" data-position="right" name="buscar" value="busqueda"></g:submitButton>
+                                    </g:if>
+                                    <g:else>
+                                        <a  class="waves-effect waves-light btn tooltipped" data-position="right" name="buscar" value="busqueda" onclick="alert('Debes iniciar sesión o registrarte para tener acceso a esta página, \nHazlo Ahora es gratis!!');">Buscar</a>
+                                    </g:else>
                                 </div>
                             </g:form>
                         </div>

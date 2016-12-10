@@ -1,4 +1,12 @@
 ---
+rutaArchivos:
+    carpeta:
+        absoluta: C:\Users\Pablo\Proyectos\Java\Nuevaruta\grails-app\assets\images\vehiculos\
+grails:
+    controllers:
+        upload:
+            maxFileSize: 200000000
+            maxRequestSize: 200000000
 hibernate:
     cache:
         queries: false
