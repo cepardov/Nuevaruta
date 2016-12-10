@@ -200,16 +200,22 @@
     window.onload = function() {
         document.getElementById('clickButton').click();
     }
+    <!--funcion para validar las contraseñas-->
     function comprobarClave(){
-        var p1=document.getElementById('password').value;
+        var p1=document.getElementById("password").value;
         var p2=document.getElementById("password2").value;
-
+        <!--comprobaremos que el contenido de las variables es el mismo-->
         if (p1 != p2) {
             alert("Las passwords deben de coincidir");
             return false;
         } else {
             alert("Todo esta correcto");
             return true;
+        }
+        <!--comprobaremos que el tamaño es mayor de 0. El tamaño de una cadena lo conseguimos con el atributo length-->
+        if (p1.length == 0 || p2.length == 0) {
+            alert("Los campos de la password no pueden quedar vacios");
+            return false;
         }
     }
 </script>
