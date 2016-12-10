@@ -12,6 +12,7 @@ class BootStrap {
                     paterno: "Zumelzu",
                     materno: "Zumelzu",
                     correo: "pablo@zumelzu.cl",
+                    clave: "qwerty",
                     telefono: "1234456768",
                     tipo: "administrador",
                     estado: "activo"

@@ -40,7 +40,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="input-field col s3">
-                                    <f:input property="rut" bean="cliente" id="rut" type="text" class="validate"></f:input>
+                                    <f:input property="rut" bean="cliente" id="rut" type="text" class="validate" oninput="checkRut(this);"></f:input>
                                     <label for="rut">Rut</label>
                                 </div>
                                 <div class="input-field col s3">
@@ -168,5 +168,8 @@
             </ul>
         </div>
     </div>
+    <script>
+        <asset:javascript src="nuevaruta/validarut.js"/>
+    </script>
     </body>
 </html>

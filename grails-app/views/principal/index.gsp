@@ -121,7 +121,7 @@
         <ul class="collection">
             <g:each var="v" in="${vehiculo}">
                 <li class="collection-item avatar">
-                    <img src="images/yuna.jpg" alt="" class="circle">
+                    <asset:image src="vehiculos/${v.archivo}" width="50" height="50" alt="" class="circle"/>
                     <span class="title">${v.marca}</span>
                     <p>${v.modelo} <br>
                         ${v.descripcion}

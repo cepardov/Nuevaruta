@@ -28,7 +28,7 @@
         </ul>
         <ul class="right hide-on-med-and-down">
             <li><a class="dropdown-button black-text" href="#!" data-activates="dropdown1">Controladores Disponibles<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="black-text" href="${createLink(controller:'principal', action:'index')}">Cerrar Sesión</a></li>
+            <li><a class="black-text" href="${createLink(controller:'principal', action:'logout')}">Cerrar Sesión</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
