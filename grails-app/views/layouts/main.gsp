@@ -201,9 +201,9 @@
         document.getElementById('clickButton').click();
     }
     function comprobarClave(){
-        p1=getElementsByTagName('contrasenaCliente').value;
-        p2=getElementsByTagName('contrasenaCliente2').value;
-        alert("Datos"+p1+p2);
+        var p1=document.getElementById('password').value;
+        var p2=document.getElementById("password2").value;
+
         if (p1 != p2) {
             alert("Las passwords deben de coincidir");
             return false;
@@ -212,7 +212,6 @@
             return true;
         }
     }
-
 </script>
 </body>
 </html>
