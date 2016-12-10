@@ -47,7 +47,8 @@ class BootStrap {
                     año: 2016,
                     valor: 14400,
                     valorHoraExtra: 7800,
-                    tipoVehiculo: 1
+                    tipoVehiculo: 1,
+                    archivo: '14-yaris-negro-mica-metalico.png'
             ).save(failOnError:true)
         }
     }

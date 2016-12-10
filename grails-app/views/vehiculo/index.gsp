@@ -27,7 +27,7 @@
                 <g:each var="v" in="${vehiculoList}">
                     <tr>
                         <td>
-                            <asset:image src="vehiculos/${v.archivo}" width="50" height="50" alt="" class="circle"/> <!-- notice the "circle" class -->
+                            <g:link class="waves-effect waves-light tooltipped" action="index" params="[vehiculo:v.id]" data-position="top" data-delay="50" data-tooltip="Cambiar foto de ${controllerName}"><asset:image src="vehiculos/${v.archivo}" width="50" height="50" alt="" class="circle"/></g:link>
                         </td>
                         <td>${v.patente}</td>
                         <td>${v.marca}</td>
@@ -39,7 +39,6 @@
                         <td>
                             <g:link class="btn-floating waves-effect waves-light yellow darken-2 tooltipped" id="${v.id}" data-position="left" data-delay="50" data-tooltip="Editar ${controllerName}"><i class="material-icons">edit</i></g:link>
                             <g:link class="btn-floating waves-effect waves-light red tooltipped" action="eliminar" id="${v.id}" data-position="left" data-delay="50" data-tooltip="Eliminar ${controllerName}"><i class="material-icons">delete</i></g:link>
-                            <g:link class="btn-floating waves-effect waves-light red tooltipped" action="index" params="[vehiculo:v.id]" data-position="left" data-delay="50" data-tooltip="Cambiar foto de ${controllerName}"><i class="material-icons">photo</i></g:link>
                         </td>
                     </tr>
                 </g:each>
@@ -195,17 +194,33 @@
         <a data-position="right" href="#modal1" id="clickButton"class="sesion"></a>
     </g:if>
 <!-- Modal Subir archivo -->
+
     <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Imagen de vehiculo</h4>
+                <!-- <p>A bunch of text</p> -->
+
         <g:uploadForm controller="vehiculo" action="upload">
-            <h3>Cargar imagen a vehiculo</h3>
-            <fieldset class="form">
-                <input type="file" name="archivo" />
-            </fieldset>
-            <input type="hidden" name="idVehiculo" value="${params.vehiculo}">
-            <fieldset class="buttons">
-                <g:link class="volver" action="index">Volver</g:link>
-                <input class="save" type="submit" value="Cargar" />
-            </fieldset>
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>Archivo</span>
+                    <input type="file" name="archivo">
+                </div>
+                <input type="hidden" name="idVehiculo" value="${params.vehiculo}">
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="save btn waves-effect waves-light" type="submit" value="Cargar">Guardar
+                    <!-- <i class="material-icons right">send</i> -->
+                </button>
+                <button class="volver modal-action modal-close btn waves-effect waves-light" action="index">Volver
+                    <!-- <i class="material-icons right">send</i> -->
+                </button>
+            </div>
         </g:uploadForm>
     </div>
 </body>
