@@ -200,6 +200,19 @@
     window.onload = function() {
         document.getElementById('clickButton').click();
     }
+    function comprobarClave(){
+        p1=getElementsByTagName('contrasenaCliente').value;
+        p2=getElementsByTagName('contrasenaCliente2').value;
+        alert("Datos"+p1+p2);
+        if (p1 != p2) {
+            alert("Las passwords deben de coincidir");
+            return false;
+        } else {
+            alert("Todo esta correcto");
+            return true;
+        }
+    }
+
 </script>
 </body>
 </html>
