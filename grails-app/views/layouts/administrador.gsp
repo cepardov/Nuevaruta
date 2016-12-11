@@ -142,7 +142,6 @@
         Materialize.toast('${flash.message}', 10000);
     </script>
 </g:if>
-
 </body>
 </html>
 

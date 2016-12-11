@@ -3,6 +3,7 @@
 <head>
     <meta name="layout" content="administrador" />
     <g:set var="entityName" value="${message(code: 'cliente.label', default: 'Cliente')}" />
+    <script type="text/javascript"></script>
     <title><g:message code="default.list.label" args="[entityName]" /></title>
 </head>
 <body>
@@ -58,26 +59,26 @@
             <h5>Editar ${controllerName}</h5>
             <div class="row">
             <!---RUT, marca, modelo, chasis, año, valor, estado, descripcion, valorHoraExtra--->
-                <g:form class="col s12" resource="${this.cliente}" method="PUT">
+                <g:form class="col s12" resource="${this.cliente}" method="PUT" name="evt">
                     <div class="row">
                         <div class="input-field col s12 m1">
-                            <f:input class="tooltipped" length="12" maxlength="13" property="rut" id="rut" bean="cliente" data-position="bottom" data-delay="50" data-tooltip="Ej: 12.345.678-k"/>
+                            <f:input class="tooltipped" length="12" maxlength="13" onKeyPress="return SoloNumeros(event)" property="rut" id="rut" bean="cliente" data-position="bottom" data-delay="50" data-tooltip="Ej: 12.345.678-k"/>
                             <label for="RUT">RUT</label>
                         </div>
                         <div class="input-field col s12 m3">
-                            <f:input property="nombres" id="nombres" bean="cliente"/>
+                            <f:input property="nombres" id="nombres" onKeyPress="return soloLetras(event)" onKeyUp="this.value = this.value.toUpperCase()" bean="cliente"/>
                             <label for="nombres">Nombres</label>
                         </div>
                         <div class="input-field col s12 m2">
-                            <f:input property="paterno" id="paterno" bean="cliente"/>
+                            <f:input property="paterno" id="paterno" onKeyPress="return soloLetras(event)" onKeyUp="this.value = this.value.toUpperCase()" bean="cliente"/>
                             <label for="paterno">Paterno</label>
                         </div>
                         <div class="input-field col s12 m2">
-                            <f:input property="materno" id="materno" bean="cliente"/>
+                            <f:input property="materno" id="materno" onKeyPress="return soloLetras(event)" onKeyUp="this.value = this.value.toUpperCase()" bean="cliente"/>
                             <label for="materno">Materno</label>
                         </div>
                         <div class="input-field col s12 m2">
-                            <f:input property="telefono" id="telefono" bean="cliente"/>
+                            <f:input property="telefono" id="telefono" onKeyPress="return SoloNumeros(event)" bean="cliente"/>
                             <label for="telefono">Telefono</label>
                         </div>
                         <div class="input-field inline col s12 m4">
@@ -111,26 +112,26 @@
             <h5>Crear ${controllerName}</h5>
             <div class="row">
             <!---RUT, marca, modelo, chasis, año, valor, estado, descripcion, valorHoraExtra--->
-                <g:form class="col s12" action="save">
+                <g:form class="col s12" action="save" name="form">
                     <div class="row">
                         <div class="input-field col s12 m1">
-                            <f:input class="tooltipped" length="12" maxlength="13" property="rut" id="rut" bean="cliente" data-position="bottom" data-delay="50" data-tooltip="Ej: 12.345.678-k"/>
+                            <f:input class="tooltipped" length="12" name="rut" maxlength="13" property="rut" id="rut" onKeyPress="return SoloNumeros(event);" bean="cliente" data-position="bottom" data-delay="50" data-tooltip="Ej: 12.345.678-k"/>
                             <label for="RUT">RUT</label>
                         </div>
                         <div class="input-field col s12 m3">
-                            <f:input property="nombres" id="nombres" bean="cliente"/>
+                            <f:input property="nombres" id="nombres" onKeyPress="return soloLetras(event)" onKeyUp="this.value = this.value.toUpperCase()" bean="cliente"/>
                             <label for="nombres">Nombres</label>
                         </div>
                         <div class="input-field col s12 m2">
-                            <f:input property="paterno" id="paterno" bean="cliente"/>
+                            <f:input property="paterno" id="paterno" onKeyPress="return soloLetras(event)" onKeyUp="this.value = this.value.toUpperCase()" bean="cliente"/>
                             <label for="paterno">Paterno</label>
                         </div>
                         <div class="input-field col s12 m2">
-                            <f:input property="materno" id="materno" bean="cliente"/>
+                            <f:input property="materno" id="materno" onKeyPress="return soloLetras(event)" onKeyUp="this.value = this.value.toUpperCase()" bean="cliente"/>
                             <label for="materno">Materno</label>
                         </div>
                         <div class="input-field col s12 m2">
-                            <f:input property="telefono" id="telefono" bean="cliente"/>
+                            <f:input property="telefono" id="telefono"  onKeyPress="return SoloNumeros(event);" bean="cliente"/>
                             <label for="telefono">Telefono</label>
                         </div>
                         <div class="input-field inline col s12 m4">
@@ -160,5 +161,46 @@
     <g:if test="${params.id}">
         <a type="hidden" href="#modalEdicion" data-position="left" data-delay="50" id="clickButton"></a>
     </g:if>
+<!--Import jQuery before materialize.js-->
+    <asset:javascript src="js/jquery-2.1.1.min.js"/>
+    <asset:javascript src="js/materialize.js"/>
+    <asset:javascript src="js/forms.js"/>
+    <script>
+        //funcion para que el campo  solo acepte numeros
+        function SoloNumeros(evt){
+            if(window.event){//asignamos el valor de la tecla a keynum
+                keynum = evt.keyCode; //IE
+            }
+            else{
+                keynum = evt.which; //FF
+            }
+            //comprobamos si se encuentra en el rango numérico y que teclas no recibirá.
+            if((keynum > 47 && keynum < 58) || keynum == 8 || keynum == 13 || keynum == 6 ){
+                return true;
+            }
+            else{
+                alert('No se aceptan letras');
+                return false;
+            }
+        }
+        //funcion para que el campo de texto solo acepte letras
+        function soloLetras(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toString();
+            letras = " áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ";//Se define todo el abecedario que se quiere que se muestre.
+            especiales = [8, 37, 39, 46, 6]; //Es la validación del KeyCodes, que teclas recibe el campo de texto.
+            tecla_especial = false
+            for(var i in especiales) {
+                if(key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+            if(letras.indexOf(tecla) == -1 && !tecla_especial){
+                alert('No se aceptan Numeros');
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>
