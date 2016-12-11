@@ -43,23 +43,23 @@
     <g:layoutBody/>
     <!-- Modal inicio de sesión -->
         <div id="modal1" class="modal">
-            <g:form controller="principal" action="login" id="modalinicio">
+            <g:form controller="principal" action="login" id="modalinicio" name="form">
             <div class="modal-content">
                 <h4>Iniciar sesión</h4>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="correoCliente" type="text" name="correoCliente" class="validate">
+                        <input id="correoCliente" type="text" name="correoCliente" class="validate" required="Ingresa tu Correo">
                         <label for="correoCliente">Correo Electrónico</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="passwordCliente" type="password" name="claveCliente" class="validate">
+                        <input id="passwordCliente" type="password" name="claveCliente" class="validate" required="Ingresa Contraseña">
                         <label for="passwordCliente">Contraseña</label>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <div class="input-field col s4">
-                    <g:submitButton class="btn-flat" name="ingresar" value="Ingresar"></g:submitButton>
+                    <g:submitButton class="btn-flat" name="ingresar" value="Ingresar" onClick="iniciosesion(this.form)"></g:submitButton>
                 </div>
                 <div class="input-field col s4">
                     <a href="#!" class=" modal-action modal-close waves-effect waves btn-flat">Cerrar</a>
@@ -229,6 +229,15 @@
             alert("La contrasena no coincide \n Intentalo de nuevo.");
             form.contrasenaCliente2.value = ""; form.contrasenaCliente2.focus();
             return true;
+        }
+    }
+    <!--funcion para el inicio de sesion-->
+    function iniciosesion(form){
+        if (form.correoCliente.value == "") {
+            alert('\"Ingresa Correo\"'); form.correoCliente.focus(); return true;
+        }
+        if (form.claveCliente.value == "") {
+            alert('\"Ingrese Contraseña\"'); form.claveCliente.focus(); return true;
         }
     }
 </script>
