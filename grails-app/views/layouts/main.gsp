@@ -119,23 +119,23 @@
     <footer class="page-footer blue-grey lighten-1 z-depth-3">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <h5 class="white-text">Nueva ruta</h5>
+                <p class="grey-text text-lighten-4">No te olvides en tu proximo viaje, contactar a NuevaRuta!!</p>
             </div>
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
                     <li><g:link controller="dashboard" action="login" class="grey-text text-lighten-3">Ingeso sesión administrador</g:link></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!"> 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!"> 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!"> 4</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-copyright">
             <div class="container">
                 © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                <a class="grey-text text-lighten-4 right" href="#!">Puerto Montt</a>
             </div>
         </div>
     </footer>
@@ -149,6 +149,7 @@
     <input type="hidden" name="nombreClienteFacebook" id="nombreClienteF">
     <input type="hidden" name="correoClienteFacebook" id="correoClienteF">
     <input type="hidden" name="idClienteFacebook" id="idClienteF">
+    <!--nose para que sirve este boton de enviar-->
     <g:submitButton name="enviar" class="hidden-sm" id="enviarFacebook"></g:submitButton>
 </g:form>
 <!--Import jQuery before materialize.js-->
