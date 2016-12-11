@@ -78,7 +78,7 @@
                             <label for="materno">Materno</label>
                         </div>
                         <div class="input-field col s12 m2">
-                            <f:input property="telefono" id="telefono" onKeyPress="return SoloNumeros(event)" bean="cliente"/>
+                            <f:input property="telefono" id="telefono" name="telefono" minLength="9" maxlength="9" onKeyPress="return SoloNumeros(event)" bean="cliente"/>
                             <label for="telefono">Telefono</label>
                         </div>
                         <div class="input-field inline col s12 m4">
@@ -131,7 +131,7 @@
                             <label for="materno">Materno</label>
                         </div>
                         <div class="input-field col s12 m2">
-                            <f:input property="telefono" id="telefono"  onKeyPress="return SoloNumeros(event);" bean="cliente"/>
+                            <f:input property="telefono" id="telefono" name="telefono" minLength="9" maxlength="9" onKeyPress="return SoloNumeros(event);" bean="cliente"/>
                             <label for="telefono">Telefono</label>
                         </div>
                         <div class="input-field inline col s12 m4">
@@ -198,6 +198,18 @@
             }
             if(letras.indexOf(tecla) == -1 && !tecla_especial){
                 alert('No se aceptan Numeros');
+                return false;
+            }
+        }
+        function validarnumero(){
+            //Almacenamos los valores
+            telefono=$('telefono').val();
+            //Comprobamos la longitud de caracteres
+            if (telefono.length>8){
+                return true;
+            }
+            else {
+                alert('Minimo 9 caracteres');
                 return false;
             }
         }
