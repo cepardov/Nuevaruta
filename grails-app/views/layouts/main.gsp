@@ -72,24 +72,24 @@
             <div class="modal-content">
                 <h4>Crear Cuenta</h4>
                 <div class="row">
-                    <g:form controller="principal" action="registro" class="col s12" name="form" id="iform">
+                    <g:form controller="principal" action="registro" class="col s12" name="form">
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="first_name" type="text" name="nombresCliente" class="validate">
+                                <input id="first_name" type="text" name="nombresCliente" class="validate" required="ingrese nombre">
                                 <label for="first_name">Nombres</label>
                             </div>
                             <div class="input-field col s3">
-                                <input id="last_name" type="text" name="paternoCliente" class="validate">
+                                <input id="last_name" type="text" name="paternoCliente" class="validate" required="ingrese apellido paterno">
                                 <label for="last_name">Apellido paterno</label>
                             </div>
                             <div class="input-field col s3">
-                                <input id="materno" type="text" name="maternoCliente" class="validate">
+                                <input id="materno" type="text" name="maternoCliente" class="validate" required="ingrese apellido materno">
                                 <label for="materno">Apellido Materno</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="email" type="email" name="correoCliente" class="validate">
+                                <input id="email" type="email" name="correoCliente" class="validate" required="ingrese correo">
                                 <label for="email">Correo electrónico</label>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s8">
-                                <g:submitButton class="btn-flat" name="registrar" value="registrar" onClick="comprobarClave()"></g:submitButton>
+                                <g:submitButton class="btn-flat" name="registrar" value="registrar" onClick="validarformularios(this.form),comprobarClave(this.form)"></g:submitButton>
                             </div>
                             <div class="input-field col s4">
                                 <a href="#!" class=" modal-action modal-close waves-effect waves btn-flat">Cerrar</a>
@@ -200,23 +200,34 @@
     window.onload = function() {
         document.getElementById('clickButton').click();
     }
-    <!--funcion para validar las contraseñas-->
-    function comprobarClave(){
-        var p1=document.getElementById('password').value;
-        var p2=document.getElementById('password2').value;
-        <!--comprobaremos que el contenido de las variables es el mismo-->
-        if (p1 != p2) {
-            alert("Las passwords deben de coincidir");
-            document.form.password.focus();
-            return false;
+    <!--funcion para los campos vacios del formulario de registro-->
+    function validarformularios(form) {
+        if (form.nombresCliente.value == "") {
+            alert('\"Ingresa Nombre\"'); form.nombresCliente.focus(); return true;
         }
-        <!--comprobaremos que el tamaño es mayor de 0. El tamaño de una cadena lo conseguimos con el atributo length-->
-        if (p1.length == 0 || p2.length == 0) {
-            alert("Los campos de la password no pueden quedar vacios");
-            return false;
+        if (form.paternoCliente.value == "") {
+            alert('\"Apellido Paterno\"'); form.paternoCliente.focus(); return true;
         }
-        else {
-            alert("Todo esta correcto");
+        if (form.maternoCliente.value == "") {
+            alert('\"Apellido Materno\"'); form.maternoCliente.focus(); return true;
+        }
+        if (form.correoCliente.value == "") {
+            alert('\"Correo\"'); form.correoCliente.focus(); return true;
+        }
+        if (form.contrasenaCliente.value == "") {
+            alert('\"Debe tener una Contraseña\"'); form.contrasenaCliente.focus(); return true;
+        }
+        if (form.contrasenaCliente2.value == "") {
+            alert('\"Debe repetir la Contraseña\"'); form.contrasenaCliente2.focus(); return true;
+        }
+    }
+    <!--funcion para validar ambas contraseñas-->
+    function comprobarClave(form) {
+        if(form.contrasenaCliente2.value == form.contrasenaCliente.value) {
+
+        }else{
+            alert("La contrasena no coincide \n Intentalo de nuevo.");
+            form.contrasenaCliente2.value = ""; form.contrasenaCliente2.focus();
             return true;
         }
     }
