@@ -80,8 +80,8 @@ class ClienteController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'cliente.label', default: 'Cliente'), "su perfil ha sido correctamente"])
-                redirect(controller: "principal", action: "perfil", params: [idCliente: cliente.id])
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'cliente.label', default: 'Cliente'), cliente.id])
+                redirect cliente
             }
             '*'{ respond cliente, [status: OK] }
         }
