@@ -157,7 +157,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m3">
-                            <f:input property="sucursal" id="patente" bean="vehiculo"/>
+                            <f:field property="sucursal" id="patente" bean="vehiculo"/>
                         </div>
                         <div class="input-field col s12 m3">
                             <f:input property="tipoVehiculo" id="patente" bean="vehiculo"/>

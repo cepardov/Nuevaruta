@@ -2,6 +2,8 @@ package nuevaruta
 
 import org.apache.tools.ant.taskdefs.Get
 
+import static org.springframework.http.HttpStatus.CREATED
+
 class PrincipalController {
     def index() {
         def tipovehiculo = TipoVehiculo.findAll()
@@ -29,7 +31,40 @@ class PrincipalController {
 
     }
     def guardarReserva(){
+        def cliente = new Cliente(rut: params.rut, nombres: params.nombres, paterno: params.paterno,materno: params.materno ,
+                correo: params.correo, telefono: params.telefono, fechaNacimiento: params.fechaNacimiento)
 
+        if (cliente == null) {
+            transactionStatus.setRollbackOnly()
+            notFound()
+            return
+        }
+
+        if (cliente.hasErrors()) {
+            transactionStatus.setRollbackOnly()
+            respond cliente.errors, view:'create'
+            return
+        }
+
+        cliente.save flush:true, failOnError: true
+
+        def reserva=new Reserva(fechaRetiro: params.fechaRetiro, fechaDevolucion: params.fechaDevolucion, horaRetiro: params.horaRetiro,
+                horaDevolucion: params.horaDevolucion, precioVehiculo: params.valorVehiculo, monto: params.monto, vehiculo: params.idvehiculo,
+                cliente: session.clienteLogeado.id )
+        if (reserva == null) {
+            transactionStatus.setRollbackOnly()
+            notFound()
+            return
+        }
+
+        if (reserva.hasErrors()) {
+            transactionStatus.setRollbackOnly()
+            respond reserva.errors, view:'create'
+            return
+        }
+        reserva.save flush:true, failOnError: true
+
+        redirect action: "perfil"
     }
     def perfil(){
         if(params.idCliente){

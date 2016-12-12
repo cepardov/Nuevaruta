@@ -4,7 +4,7 @@ import java.sql.Time
 
 class Reserva {
 
-    Date fechaRetiro, fechaDevolucion, fechaCreacion
+    Date fechaRetiro, fechaDevolucion, fechaCreacion=new Date()
     String estado
     Integer precioVehiculo, monto
     String horaRetiro, horaDevolucion
