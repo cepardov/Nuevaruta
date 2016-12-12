@@ -40,31 +40,31 @@
                         <div class="container">
                             <div class="row">
                                 <div class="input-field col s3">
-                                    <f:input property="rut" bean="cliente" id="rut" type="text" class="validate" oninput="checkRut(this);"></f:input>
+                                    <f:input property="rut" bean="cliente" id="rut" type="text" class="validate" oninput="checkRut(this);" required="true"></f:input>
                                     <label for="rut">Rut</label>
                                 </div>
                                 <div class="input-field col s3">
-                                    <f:input property="nombres" bean="cliente" id="nombres" type="text" class="validate"></f:input>
+                                    <f:input property="nombres" bean="cliente" id="nombres" type="text" class="validate" required="true"></f:input>
                                     <label for="nombres">Nombre</label>
                                 </div>
                                 <div class="input-field col s3">
-                                    <f:input property="paterno" bean="cliente" id="paterno" type="text" class="validate"></f:input>
+                                    <f:input property="paterno" bean="cliente" id="paterno" type="text" class="validate" required="true"></f:input>
                                     <label for="paterno">Apellido Paterno</label>
                                 </div>
                                 <div class="input-field col s3">
-                                    <f:input property="materno" bean="cliente" id="materno" type="text" class="validate"></f:input>
+                                    <f:input property="materno" bean="cliente" id="materno" type="text" class="validate" required="true"></f:input>
                                     <label for="materno">Apellido Materno</label>
                                 </div>
                                 <div class="input-field col s3">
-                                    <f:input property="telefono" bean="cliente" id="telefono" type="text" class="validate"></f:input>
+                                    <f:input property="telefono" bean="cliente" id="telefono" type="text" class="validate" required="true"></f:input>
                                     <label for="telefono">Telefono</label>
                                 </div>
                                 <div class="input-field col s3">
-                                    <f:input property="correo" bean="cliente" id="correo" type="text" class="validate"></f:input>
+                                    <f:input property="correo" bean="cliente" id="correo" type="text" class="validate" required="true"></f:input>
                                     <label for="correo">Correo</label>
                                 </div>
                                 <div class="input-field col s2">
-                                    <f:input property="fechaNacimiento" bean="cliente" id="fechanacimiento" type="text" class="validate"></f:input>
+                                    <f:input property="fechaNacimiento" bean="cliente" id="fechanacimiento" type="date" class="date-picker"></f:input>
                                     <label for="fechanacimiento">Fecha Nacimiento</label>
                                 </div>
                             </div>
@@ -109,20 +109,6 @@
                                             <label for="kilometraje">Kilometraje Actual</label>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="input-field col s3">
-                                            <input type="text" value="${params.fecharetiro}">
-                                            <label for="valor">Fecha retiro</label>
-                                        </div>
-                                        <div class="input-field col s3">
-                                            <input type="text" value="${params.fechadevolucion}">
-                                            <label for="valor">Fecha Devolución</label>
-                                        </div>
-                                        <div class="input-field col s3">
-                                            <input property="kilometraje" bean="vehiculo" id="kilometraje" type="text" class="validate">
-                                            <label for="kilometraje">Total valor reserva</label>
-                                        </div>
-                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -146,6 +132,30 @@
                         <div class="container">
                             <br>
                             <h1>Paga la cosa Amigo</h1>
+                            <div class="row">
+                                <div class="input-field col s3">
+                                    <input type="date" value="${params.fecharetiro}">
+                                    <label for="valor">Fecha retiro</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <f:input property="horaRetiro" bean="reserva"></f:input>
+                                    <label for="valor">Hora retiro</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s3">
+                                    <input type="date" value="${params.fechadevolucion}">
+                                    <label for="valor">Fecha Devolución</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <f:input property="horaDevolucion" bean="reserva"></f:input>
+                                    <label for="valor">Hora Devolución</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <f:input property="monto" bean="reserva"></f:input>
+                                    <label for="kilometraje">Total valor reserva</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -162,8 +172,6 @@
             </ul>
         </div>
     </div>
-    <script>
-        <asset:javascript src="nuevaruta/validarut.js"/>
-    </script>
+    <asset:javascript src="validarut.js"/>
     </body>
 </html>

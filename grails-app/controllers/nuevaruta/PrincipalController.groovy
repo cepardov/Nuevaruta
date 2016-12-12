@@ -16,16 +16,31 @@ class PrincipalController {
         [tipovehiculo:tipovehiculo, sucursal:sucursal, vehiculo:vehiculo]
     }
     def reserva(){
-        println "parametro" +params.idvehiculo
         def cliente=null
         def vehiculo= Vehiculo.findById(params.idvehiculo)
         def sucursal= Sucursal.findById(params.idsucursal)
+        def reserva= new Reserva(params)
         if(session.clienteLogeado){
             cliente=Cliente.findByCorreo(session.clienteLogeado.correo)
         }else{
-            respond new Cliente(params), model:[vehiculo: vehiculo, cliente:cliente, sucursal:sucursal]
+            respond new Cliente(params), model:[vehiculo: vehiculo, cliente:cliente, sucursal:sucursal, reserva:reserva]
         }
-        [vehiculo: vehiculo, cliente:cliente, sucursal:sucursal]
+        [vehiculo: vehiculo, cliente:cliente, sucursal:sucursal, reserva:reserva]
+
+    }
+    def guardarReserva(){
+
+    }
+    def perfil(){
+        if(params.idCliente){
+            def cliente=Cliente.findById(session.clienteLogeado.id)
+            def reservas=Reserva.findByCliente(Cliente.findById(session.clienteLogeado.id))
+            [cliente:cliente, reservas:reservas ]
+        }else{
+            flash.message="No tienes las credenciales necesarias para ingreas aquí"
+            redirect controller: "principal", action: "index"
+        }
+
 
     }
     //Registro y sistema de logeo

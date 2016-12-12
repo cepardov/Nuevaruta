@@ -122,18 +122,20 @@
             <g:each var="v" in="${vehiculo}">
                 <li class="collection-item avatar">
                     <asset:image src="vehiculos/${v.archivo}" width="50" height="50" alt="" class="circle"/>
-                    <span class="title">${v.marca}</span>
-                    <p>${v.modelo} <br>
-                        ${v.descripcion}
+                    <span class="title">${v.marca} ${v.modelo} </span>
+                    <p>
+                        ${v.descripcion}<br>
+                        Valor por dia :<label>$${v.valor} </label><br>
+                        Cantidad de dias: <label>Aqui coloca la cantidad de dias</label><br>
+                        Precio aproximado: <label>Aqui Va el precio que es el "valor por dia" * "la cantidad de dias"</label>
                     </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
                     <g:link action="reserva" params="[idvehiculo:v.id, idsucursal:v.sucursalId, fecharetiro:params.fecharetiro, fechadevolucion:params.fechadevolucion]">Seleccionar</g:link>
                 </li>
             </g:each>
         </ul>
     </div>
     <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
     </div>
 </div>
 <script>

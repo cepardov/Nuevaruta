@@ -12,7 +12,7 @@ class Cliente {
         clave nullable: true, blank: true
         materno nullable: true, blank: true
         telefono nullable: true, blank: true
-        fechaNacimiento nullable: true, blank: true
+        fechaNacimiento nullable: true, blank: true, attributes:[years:1970..2016]
         facebookID nullable: true, blanck:true
     }
 }

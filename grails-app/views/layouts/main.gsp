@@ -24,8 +24,8 @@
                         <asset:image src="img/logo.png" alt="logo" class="img-responsive" width="18%" height="18%" style="padding:1%"/>
                     </a>
                     <ul class="right hide-on-med-and-down">
-                        <g:if test="${session.clienteLogeado!=null}">
-                            <li><a data-position="right" href="#modal1" class="sesion">${session.clienteLogeado.nombres} ${session.clienteLogeado.paterno} ${session.clienteLogeado.materno}</a></li>
+                        <g:if test="${session.clienteLogeado}">
+                            <li><g:link data-position="right" controller="principal" action="perfil" params="[idCliente:session.clienteLogeado.id]" class="sesion" >${session.clienteLogeado.nombres} ${session.clienteLogeado.paterno} ${session.clienteLogeado.materno}</g:link></li>
                             <li><a data-position="right" href="" class="sesion"><g:link controller="principal" action="logout">Salir</g:link></a></li>
                         </g:if>
                         <g:else>
