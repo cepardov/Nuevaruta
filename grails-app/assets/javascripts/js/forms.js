@@ -1,9 +1,12 @@
 var currentdate = new Date();
+var currentTime = new Date();
+
 jQuery(document).ready(function ($) {
 	$(document).ready(function() {
+		var maxDate =  new Date(currentTime.getFullYear(), currentTime.getMonth() +1, +0); // one day before next month
 		$('.datepicker').pickadate({
 		monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-		monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dec'],
+		monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
 		weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado'],
 		weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sáb'],
 		format: 'yyyy-mm-dd',//+currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds() + "." + currentdate.getMilliseconds(),
@@ -11,8 +14,11 @@ jQuery(document).ready(function ($) {
 		clear: 'Borrar',
 		close: 'Cerrar',
 		closeOnSelect: false,
-		selectMonths: true, // Creates a dropdown to control month
-		selectYears: 15, // Creates a dropdown of 15 years to control year
+		min: new Date(),
+		max: new Date(currentTime.getFullYear(), currentTime.getMonth()+3, currentTime.getDay()+15),
+		selectMonths: false, // Creates a dropdown to control month
+		selectYears: 1, // Creates a dropdown of 15 years to control year
+		selectDays: 12,
 			onSet: function( arg ){
 				if ( 'select' in arg ){ //prevent closing on selecting month/year
 					this.close();
