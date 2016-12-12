@@ -4,6 +4,20 @@
         <meta name="layout" content="main"/>
     </head>
     <body>
+    <div class="">
+        <nav>
+            <div class="nav-wrapper blue-grey">
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" placeholder="Buscar algunas cosas" required>
+                        <label for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
+    </div>
+
     <h5>Mis Datos</h5>
     <div class="row">
     <!---RUT, marca, modelo, chasis, año, valor, estado, descripcion, valorHoraExtra--->
