@@ -135,15 +135,14 @@
                         <div class="collapsible-body blue-grey lighten-5">
                             <div class="container">
                                 <br>
-                                <h1>Paga la cosa Amigo</h1>
                                 <div class="row">
                                     <div class="input-field col s3">
                                         <input type="date" name="fechaRetiro" id="fechaRet" class="datepicker" value="${params.fecharetiro}">
-                                        <label for="fecharet">Fecha retiro</label>
+                                        <label class="active" for="fecharet">Fecha retiro</label>
                                     </div>
                                     <div class="input-field col s3">
                                         <f:input property="horaRetiro" bean="reserva"></f:input>
-                                        <label for="valor">Hora retiro</label>
+                                        <label class="active" for="valor">Hora retiro</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -151,15 +150,15 @@
                                     <input type="hidden" name="idvehiculo" value="${params.idvehiculo}">
                                     <div class="input-field col s3">
                                         <input type="date" name="fechaDevolucion" id="fechaDev" class="datepicker" value="${params.fechadevolucion}">
-                                        <label for="fechaDev">Fecha Devolución</label>
+                                        <label class="active" for="fechaDev">Fecha Devolución</label>
                                     </div>
                                     <div class="input-field col s3">
                                         <f:input property="horaDevolucion" bean="reserva"></f:input>
-                                        <label for="valor">Hora Devolución</label>
+                                        <label class="active" for="valor">Hora Devolución</label>
                                     </div>
                                     <div class="input-field col s3">
                                         <input type="text" name="monto" id="monto">
-                                        <label for="kilometraje">Total valor reserva</label>
+                                        <label class="active" for="kilometraje">Total valor reserva</label>
                                     </div>
                                     <div class="input-field col s3">
                                        <g:submitButton name="pagar" class="btn waves-effect waves-light" action="guardarReserva" value="Pagar">Pagar</g:submitButton>

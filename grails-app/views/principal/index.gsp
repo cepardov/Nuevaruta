@@ -78,34 +78,18 @@
     <div class="slider card-panel z-depth-0 col s12 m9"><!-- Contenido derecho -->
         <ul class="slides">
             <li>
-                <img src="http://cdn01.ib.infobae.com/adjuntos/162/imagenes/014/478/0014478089.jpg"> <!-- random image -->
+                <img src="assets/vehiculos/14-yaris-negro-mica-metalico.png"> <!-- random image -->
                 <div class="caption center-align">
-                    <h3>This is our big Tagline!</h3>
-                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                    <h3>Toyota Yaris</h3>
+                    <h5 class="light grey-text text-lighten-3">4 Puertas · 5300L Maleta · 5 Ocupantes.</h5>
                 <a class="waves-effect waves-light btn">Ver Oferta</a>
                 </div>
             </li>
             <li>
-                <img src="http://cdn01.ib.infobae.com/adjuntos/162/imagenes/014/478/0014478078.jpg?0000-00-00-00-00-00"> <!-- random image -->
+                <img src="assets/vehiculos/2samsungsm3.jpg"> <!-- random image -->
                 <div class="caption left-align">
-                    <h3>Left Aligned Caption</h3>
-                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                <a class="waves-effect waves-light btn">Ver Oferta</a>
-                </div>
-            </li>
-            <li>
-                <img src="http://cdn01.ib.infobae.com/adjuntos/162/imagenes/014/478/0014478103.jpg?0000-00-00-00-00-00"> <!-- random image -->
-                <div class="caption right-align">
-                    <h3>Right Aligned Caption</h3>
-                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                <a class="waves-effect waves-light btn">Ver Oferta</a>
-                </div>
-            </li>
-            <li>
-                <img src="http://cdn01.ib.infobae.com/adjuntos/162/imagenes/014/478/0014478125.jpg?0000-00-00-00-00-00"> <!-- random image -->
-                <div class="caption center-align">
-                    <h3>This is our big Tagline!</h3>
-                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                    <h3>Samsung SM3</h3>
+                    <h5 class="light grey-text text-lighten-3">4 Puertas · 5100L Maleta · 5 Ocupantes.</h5>
                 <a class="waves-effect waves-light btn">Ver Oferta</a>
                 </div>
             </li>
