@@ -26,8 +26,8 @@
         <g:form class="col s12" action="updateCliente" resource="${this.cliente}" method="PUT"name="evt">
             <div class="row">
                 <div class="input-field col s12 m1">
-                    <f:input class="tooltipped" length="12" maxlength="13" onKeyPress="return SoloNumeros(event)" property="rut" id="rut" bean="cliente" data-position="bottom" data-delay="50" data-tooltip="Ej: 12.345.678-k"/>
-                    <label for="RUT">RUT</label>
+                    <f:input class="tooltipped" length="12" maxlength="13" oninput="checkRut(this)" property="rut" id="rut" name="rut" bean="cliente" data-position="bottom" data-delay="50" data-tooltip="Ej: 12.345.678-k"/>
+                    <label for="RUT">Rut</label>
                 </div>
                 <div class="input-field col s12 m3">
                     <f:input property="nombres" id="nombres" onKeyPress="return soloLetras(event)" onKeyUp="this.value = this.value.toUpperCase()" bean="cliente"/>
@@ -135,6 +135,43 @@
                 alert('No se aceptan Numeros');
                 return false;
             }
+        }
+        <!--funcion para validar el rut-->
+        function checkRut(rut) {
+            // para Despejar Puntos
+            var valor = rut.value.replace('.','');
+            // para Despejar Guión
+            valor = valor.replace('-','');
+            // Aislar Cuerpo y Dígito Verificador
+            cuerpo = valor.slice(0,-1);
+            dv = valor.slice(-1).toUpperCase();
+            // Formatear RUN
+            rut.value = cuerpo + '-'+ dv
+            // Si no cumple con el mínimo ej. (1.222.333)
+            if(cuerpo.length < 7) {
+                rut.setCustomValidity("RUT Incompleto"); 
+                return false;}
+            // Calcular Dígito Verificador
+            suma = 0;
+            multiplo = 2;
+            // Para cada dígito del Cuerpo
+            for(i=1;i<=cuerpo.length;i++) {
+                // Obtener su Producto con el Múltiplo Correspondiente
+                index = multiplo * valor.charAt(cuerpo.length - i);
+                // Sumar al Contador General
+                suma = suma + index;
+                // Consolidar Múltiplo dentro del rango [2,7]
+                if(multiplo < 7) { multiplo = multiplo + 1; } else { multiplo = 2; }
+            }
+            // Calcular Dígito Verificador en base al Módulo 11
+            dvEsperado = 11 - (suma % 11);
+            // Casos Especiales (0 y K)
+            dv = (dv == 'K')?10:dv;
+            dv = (dv == 0)?11:dv;
+            // Validar que el Cuerpo coincide con su Dígito Verificador
+            if(dvEsperado != dv) { rut.setCustomValidity("RUT Inválido"); return false; }
+            // Si todo sale bien, eliminar errores (decretar que es válido)
+            rut.setCustomValidity('');
         }
     </script>
     </body>
