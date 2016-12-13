@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta name="layout" content="main"/>
+        <g:set var="entityName" value="${message(code: 'cliente.label', default: 'Cliente')}" />
+        <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
     <div class="">
@@ -21,7 +23,7 @@
     <h5>Mis Datos</h5>
     <div class="row">
     <!---RUT, marca, modelo, chasis, año, valor, estado, descripcion, valorHoraExtra--->
-        <g:form class="col s12" resource="${this.cliente}" method="PUT" name="evt">
+        <g:form class="col s12" action="updateCliente" resource="${this.cliente}" method="PUT"name="evt">
             <div class="row">
                 <div class="input-field col s12 m1">
                     <f:input class="tooltipped" length="12" maxlength="13" onKeyPress="return SoloNumeros(event)" property="rut" id="rut" bean="cliente" data-position="bottom" data-delay="50" data-tooltip="Ej: 12.345.678-k"/>
@@ -84,7 +86,7 @@
                 <tr>
                     <td>${r.fechaRetiro}</td>
                     <td>${r.fechaDevolucion}</td>
-                    <td>${r.pago.monto}</td>
+                    <td>$${r.monto}</td>
                     <td>${r.vehiculo.marca}</td>
                     <td>${r.vehiculo.modelo}</td>
                     <td>${r.vehiculo.patente}</td>

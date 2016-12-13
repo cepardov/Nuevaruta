@@ -5,6 +5,7 @@ import java.util.Date
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import static org.springframework.http.HttpStatus.CREATED
+import static org.springframework.http.HttpStatus.OK
 
 class PrincipalController {
     def index() {
@@ -53,13 +54,6 @@ class PrincipalController {
                             horaRetiro: params.horaRetiro, horaDevolucion: params.horaDevolucion, monto: params.monto,
                             precioVehiculo: params.precioVehiculo, vehiculo: params.idvehiculo, cliente: cliente
         )
-        /*r.fechaRetiro=params.fechaRetiro
-        r.fechaDevolucion= params.fechaDevolucion
-        r.horaRetiro= params.horaRetiro
-        r.horaDevolucion= params.horaDevolucion
-        r.monto= params.mont
-        r.vehiculo= params.idvehiculo
-        r.cliente= cliente*/
         r.save flush:true
         if (!r.save()) {
             r.errors.allErrors.each {
@@ -78,6 +72,11 @@ class PrincipalController {
             redirect controller: "principal", action: "index"
         }
 
+
+    }
+    def updateCliente(Cliente cliente){
+
+        cliente.save flush:true
 
     }
     //Registro y sistema de logeo

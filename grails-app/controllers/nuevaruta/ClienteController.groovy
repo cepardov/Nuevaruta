@@ -86,7 +86,29 @@ class ClienteController {
             '*'{ respond cliente, [status: OK] }
         }
     }
+    def updateCliente(Cliente cliente) {
+        if (cliente == null) {
+            transactionStatus.setRollbackOnly()
+            notFound()
+            return
+        }
 
+        if (cliente.hasErrors()) {
+            transactionStatus.setRollbackOnly()
+            respond cliente.errors, view:'edit'
+            return
+        }
+
+        cliente.save flush:true
+
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'cliente.label', default: 'Cliente'), cliente.id])
+                redirect controller: "principal",action: "perfil", params:[idCliente:session.clienteLogeado.id]
+            }
+            '*'{ respond cliente, [status: OK] }
+        }
+    }
     @Transactional
     def delete(Cliente cliente) {
 
