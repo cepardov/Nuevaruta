@@ -196,7 +196,6 @@
             var dif = fFecha2 - fFecha1;
             var dias = Math.floor(dif / (1000 * 60 * 60 * 24));
             var monto=dias*(pv*1000);
-            alert("dias:" +dias+ "monto: "+pv)
             document.getElementById("monto").value=monto;
         }
     </script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+    <html>
     <head>
         <meta name="layout" content="main"/>
         <g:set var="entityName" value="${message(code: 'cliente.label', default: 'Cliente')}" />

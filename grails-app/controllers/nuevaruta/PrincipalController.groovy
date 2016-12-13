@@ -62,10 +62,13 @@ class PrincipalController {
         }
         redirect action: "perfil", params:[idCliente:session.clienteLogeado.id]
     }
+    def pago(){
+
+    }
     def perfil(){
         if(params.idCliente){
             def cliente=Cliente.findById(session.clienteLogeado.id)
-            def reservas=Reserva.findByCliente(Cliente.findById(session.clienteLogeado.id))
+            def reservas=Reserva.findAllByCliente(Cliente.findById(session.clienteLogeado.id))
             [cliente:cliente, reservas:reservas ]
         }else{
             flash.message="No tienes las credenciales necesarias para ingreas aquí"
