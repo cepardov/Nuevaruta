@@ -47,7 +47,7 @@
                                         <label for="rut">Rut</label>
                                     </div>
                                     <div class="input-field col s3">
-                                        <input name="nombres" id="nombres" onKeyPress="return soloLetras(event)" type="text" class="validate" required="true" >
+                                        <input name="nombres" id="nombres" onKeyPress="return soloLetras(event)" type="text" class="validate" value="${cliente.nombres}" required="true" >
                                         <label for="nombres">Nombres</label>
                                     </div>
                                     <div class="input-field col s3">
@@ -182,11 +182,7 @@
             </div>
         </g:form>
     </div>
-    <!--Import jQuery before materialize.js-->
-    <asset:javascript src="js/jquery-2.1.1.min.js"/>
-    <asset:javascript src="js/materialize.js"/>
-    <asset:javascript src="js/forms.js"/>
-    <asset:javascript src="validarut.js"/>
+
     <script>
         window.onload = function() {
             var pv = document.getElementById("valor").value;

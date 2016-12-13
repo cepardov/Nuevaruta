@@ -153,9 +153,12 @@
     <g:submitButton name="enviar" class="hidden-sm" id="enviarFacebook"></g:submitButton>
 </g:form>
 <!--Import jQuery before materialize.js-->
+<!--Import jQuery before materialize.js-->
 <asset:javascript src="js/jquery-2.1.1.min.js"/>
 <asset:javascript src="js/materialize.js"/>
 <asset:javascript src="js/forms.js"/>
+<asset:javascript src="validarut.js"/>
+
 <script>
     (function(d,s,id) {
         var js, fjs = d.getElementsByTagName(s)[0];

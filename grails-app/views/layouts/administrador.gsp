@@ -139,7 +139,7 @@
 </script>
 <g:if test="${flash.message}">
     <script>
-        Materialize.toast('${flash.message}', 10000);
+        Materialize.toast('${flash.message}', 8000);
     </script>
 </g:if>
 </body>
