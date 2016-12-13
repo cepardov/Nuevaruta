@@ -95,6 +95,14 @@
                 <!-- <a class="waves-effect waves-light btn">Ver Oferta</a> -->
                 </div>
             </li>
+            <li>
+                <img src="assets/vehiculos/27721.jpg"> <!-- random image -->
+                <div class="caption left-align">
+                    <h3 class="grey-text darken-3">Mazda Mazda 3</h3>
+                    <h5 class=" grey-text darken-4 text-lighten-3">4 Puertas · 5100L Maleta · 5 Ocupantes.</h5>
+                    <!-- <a class="waves-effect waves-light btn">Ver Oferta</a> -->
+                </div>
+            </li>
         </ul>
     </div>
     <h3 class="center">Variedad de vehiculos para elegir</h3>
