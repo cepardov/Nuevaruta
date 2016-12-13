@@ -1,7 +1,9 @@
 package nuevaruta
 
 import org.apache.tools.ant.taskdefs.Get
-
+import java.util.Date
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import static org.springframework.http.HttpStatus.CREATED
 
 class PrincipalController {
@@ -31,40 +33,40 @@ class PrincipalController {
 
     }
     def guardarReserva(){
-        def cliente = new Cliente(rut: params.rut, nombres: params.nombres, paterno: params.paterno,materno: params.materno ,
-                correo: params.correo, telefono: params.telefono, fechaNacimiento: params.fechaNacimiento)
+        def clienteId=session.clienteLogeado.id
+        def cliente =Cliente.get(clienteId)
+        cliente.properties=params
+        cliente.rut=params.rut
+        //cliente.rut= params.rut
+        cliente.nombres=params.nombres
+        cliente.paterno=params.paterno
+        cliente.materno=params.materno
+        cliente.correo=params.correo
+        cliente.telefono=params.telefono
+        cliente.fechaNacimiento= params.fechaNacimiento
 
-        if (cliente == null) {
-            transactionStatus.setRollbackOnly()
-            notFound()
-            return
+        println "grabando cliente..."+ cliente.nombres
+        cliente.save flush:true
+
+
+        def r = new Reserva(fechaRetiro: params.fechaRetiro, fechaDevolucion: params.fechaDevolucion,
+                            horaRetiro: params.horaRetiro, horaDevolucion: params.horaDevolucion, monto: params.monto,
+                            precioVehiculo: params.precioVehiculo, vehiculo: params.idvehiculo, cliente: cliente
+        )
+        /*r.fechaRetiro=params.fechaRetiro
+        r.fechaDevolucion= params.fechaDevolucion
+        r.horaRetiro= params.horaRetiro
+        r.horaDevolucion= params.horaDevolucion
+        r.monto= params.mont
+        r.vehiculo= params.idvehiculo
+        r.cliente= cliente*/
+        r.save flush:true
+        if (!r.save()) {
+            r.errors.allErrors.each {
+                println it
+            }
         }
-
-        if (cliente.hasErrors()) {
-            transactionStatus.setRollbackOnly()
-            respond cliente.errors, view:'create'
-            return
-        }
-
-        cliente.save flush:true, failOnError: true
-
-        def reserva=new Reserva(fechaRetiro: params.fechaRetiro, fechaDevolucion: params.fechaDevolucion, horaRetiro: params.horaRetiro,
-                horaDevolucion: params.horaDevolucion, precioVehiculo: params.valorVehiculo, monto: params.monto, vehiculo: params.idvehiculo,
-                cliente: session.clienteLogeado.id )
-        if (reserva == null) {
-            transactionStatus.setRollbackOnly()
-            notFound()
-            return
-        }
-
-        if (reserva.hasErrors()) {
-            transactionStatus.setRollbackOnly()
-            respond reserva.errors, view:'create'
-            return
-        }
-        reserva.save flush:true, failOnError: true
-
-        redirect action: "perfil"
+        redirect action: "perfil", params:[idCliente:session.clienteLogeado.id]
     }
     def perfil(){
         if(params.idCliente){

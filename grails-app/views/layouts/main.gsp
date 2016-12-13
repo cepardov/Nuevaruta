@@ -198,9 +198,6 @@
             }
         });
     }
-    window.onload = function() {
-        document.getElementById('clickButton').click();
-    }
     <!--funcion para los campos vacios del formulario de registro-->
     function validarformularios(form) {
         if (form.nombresCliente.value == "") {

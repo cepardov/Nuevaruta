@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta name="layout" content="main"/>
+        <g:set var="entityName" value="${message(code: 'vehiculo.label', default: 'Reserva')}" />
+        <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
     <div class="parallax-container">
@@ -65,7 +67,8 @@
                                         <label for="correo">Correo</label>
                                     </div>
                                     <div class="input-field col s3">
-                                        <input name="fechaNacimiento" id="fechanacimiento" type="date" class="datepicker" value="${cliente.fechaNacimiento}">
+                                        <input type="date" class="date-picker"  name="fechaNacimiento" id="fechanacimiento" value="${formatDate(format:'MM/dd/yyyy',date:objInstance?.endDate)}">
+
                                         <label for="fechanacimiento">Fecha Nacimiento</label>
                                     </div>
                                 </div>
@@ -135,8 +138,8 @@
                                 <h1>Paga la cosa Amigo</h1>
                                 <div class="row">
                                     <div class="input-field col s3">
-                                        <input type="date" name="fecharetiro" id="fecharetiro" class="datepicker" value="${params.fecharetiro}">
-                                        <label for="fecharetiro">Fecha retiro</label>
+                                        <input type="date" name="fechaRetiro" id="fechaRet" class="datepicker" value="${params.fecharetiro}">
+                                        <label for="fecharet">Fecha retiro</label>
                                     </div>
                                     <div class="input-field col s3">
                                         <f:input property="horaRetiro" bean="reserva"></f:input>
@@ -144,20 +147,22 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <input type="hidden" name="precioVehiculo" id="valor" value="${vehiculo.valor}">
+                                    <input type="hidden" name="idvehiculo" value="${params.idvehiculo}">
                                     <div class="input-field col s3">
-                                        <input type="date" name="fechadevolucion" id="fechadevolucion" class="datepicker" value="${params.fechadevolucion}">
-                                        <label for="fechadevolucion">Fecha Devolución</label>
+                                        <input type="date" name="fechaDevolucion" id="fechaDev" class="datepicker" value="${params.fechadevolucion}">
+                                        <label for="fechaDev">Fecha Devolución</label>
                                     </div>
                                     <div class="input-field col s3">
                                         <f:input property="horaDevolucion" bean="reserva"></f:input>
                                         <label for="valor">Hora Devolución</label>
                                     </div>
                                     <div class="input-field col s3">
-                                        <f:input property="monto" bean="reserva"></f:input>
+                                        <input type="text" name="monto" id="monto">
                                         <label for="kilometraje">Total valor reserva</label>
                                     </div>
                                     <div class="input-field col s3">
-                                       <g:link class="btn waves-effect waves-light" action="guardarReserva" value="Pagar">Pagar</g:link>
+                                       <g:submitButton name="pagar" class="btn waves-effect waves-light" action="guardarReserva" value="Pagar">Pagar</g:submitButton>
                                     </div>
                                 </div>
                             </div>
@@ -180,7 +185,20 @@
     </div>
     <asset:javascript src="validarut.js"/>
     <script>
-
+        window.onload = function() {
+            var pv = document.getElementById("valor").value;
+            var x= document.getElementById("fechaRet").value;
+            var y= document.getElementById("fechaDev").value;
+            var aFecha1 = x.split('-');
+            var aFecha2 = y.split('-');
+            var fFecha1 = Date.UTC(aFecha1[0],aFecha1[1]-1,aFecha1[2]);
+            var fFecha2 = Date.UTC(aFecha2[0],aFecha2[1]-1,aFecha2[2]);
+            var dif = fFecha2 - fFecha1;
+            var dias = Math.floor(dif / (1000 * 60 * 60 * 24));
+            var monto=dias*(pv*1000);
+            alert("dias:" +dias+ "monto: "+pv)
+            document.getElementById("monto").value=monto;
+        }
     </script>
     </body>
 </html>

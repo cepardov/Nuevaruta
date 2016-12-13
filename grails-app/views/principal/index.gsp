@@ -13,7 +13,7 @@
                     <div class="card-panel teal white-text z-depth-4">
                         <div class="row">
                             <h5>Rentar Ahora!</h5>
-                            <g:form action="index" method="get" class="col s12">
+                            <g:form action="index" method="get" class="col s12" name="fechas">
                                 <div class="input-field col s12">
                                     <select name="tipo">
                                         <option value="" disabled selected>Elija opcion</option>
@@ -33,11 +33,11 @@
                                     <label class="white-text">Arriendo de movil en</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input type="date" name="fecharetiro" class="datepicker">
+                                    <input type="date" name="fecharetiro" class="datepicker" id="fechaRetiro" >
                                     <label class="white-text" >Fecha de retiro</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input type="date" name="fechadevolucion" class="datepicker">
+                                    <input type="date" name="fechadevolucion" class="datepicker" id="fechaDevolucion" >
                                     <label class="white-text">Fecha de devolucion</label>
                                 </div>
                                 <div class="input-field col s12 center-align">
@@ -113,10 +113,12 @@
     </div>
 </div>
 <g:if test="${vehiculo!=null}">
-    <a  id="clickButton" class="tooltipped waves-effect waves-light btn" data-position="right" data-tooltip="Abre un modal" href="#modalvehiculos">Test Modal</a>
+    <a id="clickButton2" class="tooltipped waves-effect waves-light btn" data-position="right" data-tooltip="Abre un modal" href="#modalvehiculos">Test Modal</a>
 </g:if>
 <div id="modalvehiculos" class="modal">
     <div class="modal-content">
+        <input type="hidden" name="fechaRet" value="${params.fecharetiro}" id="fechaRet">
+        <input type="hidden" name="fechaDev" value="${params.fechadevolucion}" id="fechaDev">
         <h4>Listado de autos</h4>
         <ul class="collection">
             <g:each var="v" in="${vehiculo}">
@@ -125,11 +127,11 @@
                     <span class="title">${v.marca} ${v.modelo} </span>
                     <p>
                         ${v.descripcion}<br>
-                        Valor por dia :<label>$${v.valor} </label><br>
-                        Cantidad de dias: <label>Aqui coloca la cantidad de dias</label><br>
-                        Precio aproximado: <label>Aqui Va el precio que es el "valor por dia" * "la cantidad de dias"</label>
+                        Valor por dia :<label value="${valor}" id="valor">$${v.valor} </label><br>
+                        Cantidad de dias: <label id="dias"></label><br>
+                        Precio aproximado: <label id="sumar" onclick="calcularvalor()"></label>
                     </p>
-                    <g:link action="reserva" params="[idvehiculo:v.id, idsucursal:v.sucursalId, fecharetiro:params.fecharetiro, fechadevolucion:params.fechadevolucion]">Seleccionar</g:link>
+                    <g:link action="reserva" params="[idvehiculo:v.id, idsucursal:v.sucursalId, fecharetiro:params.fecharetiro, fechadevolucion:params.fechadevolucion, dias: ndias]">Seleccionar</g:link>
                 </li>
             </g:each>
         </ul>
@@ -139,7 +141,25 @@
     </div>
 </div>
 <script>
-
+    window.onload = function() {
+        document.getElementById('clickButton2').click();
+        var x= document.getElementById("fechaRet").value;
+        var y= document.getElementById("fechaDev").value;
+        var aFecha1 = x.split('-');
+        var aFecha2 = y.split('-');
+        var fFecha1 = Date.UTC(aFecha1[0],aFecha1[1]-1,aFecha1[2]);
+        var fFecha2 = Date.UTC(aFecha2[0],aFecha2[1]-1,aFecha2[2]);
+        var dif = fFecha2 - fFecha1;
+        var dias = Math.floor(dif / (1000 * 60 * 60 * 24));
+        document.getElementById("dias").innerHTML=dias;
+    }
+    function calcularvalor(){
+        alert ("esto esta trabajando")
+        var dias = document.getElementById("dias").value;
+        var precio = document.getElementById("valor").value;
+        var valor=precio*dias;
+        document.getElementById("sumar").innerHTML=valor;
+    }
 </script>
 </body>
 </html>
