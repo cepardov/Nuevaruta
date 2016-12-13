@@ -53,6 +53,7 @@
                     </div>
                 </div>
             </div>
+    <!--
             <div class="row">
                 <div class="col s12">
                     <div class="card-panel teal z-depth-4">
@@ -66,12 +67,13 @@
                             Reloading active: ${grails.util.Environment.reloadingAgentEnabled}<br><br>
                             <a class="btn tooltipped" data-position="right" data-tooltip="Esto prueba un mensaje de informacion de prueba" onclick="Materialize.toast('Se esta incluyendo la funciones de mensajes', 5000,'')">Test de mesajes</a>
                             <br></br>
-                            <!-- Modal Trigger -->
+                            <!-- Modal Trigger --
                             <a class="tooltipped waves-effect waves-light btn" data-position="right" data-tooltip="Abre un modal" href="#modal1">Test Modal</a>
                         </span>
                     </div>
                 </div>
             </div>
+-->
         </div>
     </div>
 
@@ -82,7 +84,7 @@
                 <div class="caption center-align">
                     <h3>Toyota Yaris</h3>
                     <h5 class="light grey-text text-lighten-3">4 Puertas · 5300L Maleta · 5 Ocupantes.</h5>
-                <a class="waves-effect waves-light btn">Ver Oferta</a>
+                <!--<a class="waves-effect waves-light btn">Ver Oferta</a> -->
                 </div>
             </li>
             <li>
@@ -90,11 +92,12 @@
                 <div class="caption left-align">
                     <h3>Samsung SM3</h3>
                     <h5 class="light grey-text text-lighten-3">4 Puertas · 5100L Maleta · 5 Ocupantes.</h5>
-                <a class="waves-effect waves-light btn">Ver Oferta</a>
+                <!-- <a class="waves-effect waves-light btn">Ver Oferta</a> -->
                 </div>
             </li>
         </ul>
     </div>
+    <h3 class="center">Variedad de vehiculos para elegir</h3>
 </div>
 <g:if test="${vehiculo!=null}">
     <a id="clickButton2" class="tooltipped waves-effect waves-light btn" data-position="right" data-tooltip="Abre un modal" href="#modalvehiculos">Test Modal</a>

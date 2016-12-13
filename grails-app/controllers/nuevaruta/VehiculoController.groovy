@@ -120,7 +120,7 @@ class VehiculoController {
     def upload() {
         def f = request.getFile('archivo')
         if (f.empty) {
-            flash.message = "Debes seleccionar un archivo para cargarlo a un Egreso."
+            flash.message = "Debes seleccionar un archivo para cargarlo a un Vehiculo."
             redirect(controller: "vehiculo", action: "index")
             return
         }
@@ -129,7 +129,7 @@ class VehiculoController {
         Sql sql = new Sql(dataSource)
         sql.execute("update vehiculo as v set v.archivo='"+params.idVehiculo + f.filename+"' where id="+params.idVehiculo)
         //Vehiculo archivo = new Vehiculo(nombre: f?.filename, ruta: filePath, entidad: 'egreso', entidadId: params.idEgreso, creadoPor:session.usuarioLogueado.rut).save(flush:true, failOnError: true)
-        flash.message = "Archivo Cargado Correctamente en Egreso $params.idEgreso"
+        flash.message = "Archivo Cargado Correctamente."
         redirect(controller: "vehiculo", action: "index")
     }
 }
